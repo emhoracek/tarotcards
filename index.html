@@ -8,10 +8,10 @@
     -->
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5"/>
+    <meta name="viewport" content="width=device-width, initial-scale=0.75, minimum-scale=0.75"/>
     <link rel="icon" href="https://glitch.com/favicon.ico" />
 
-    <!-- 
+    <!--
       This is an HTML comment
       You can write text in a comment and the content won't be visible in the page
     -->
@@ -66,6 +66,9 @@
         </div>
       </div>
     </div>
+    <div id="open-explainer">
+      <button>divinatory text</button>
+    </div>
     <div id="explainer">
       <div class="explainer-titlebar">
         <div class="explainer-title">
@@ -75,7 +78,10 @@
           ✕
         </div>
       </div>
-      <div class="explanation">
+      <div class="explanation-placeholder">
+        <p>Select a card to see its interpretation.</p>
+      </div>
+      <div class="explanation-main">
         <div class="explanation-positive">
           <header><h1>Positive</h1></header>
           <p>
@@ -94,11 +100,11 @@
           <input type="radio" id="cs" checked name="interpretation" value="cs">
           Coleman-Smith
         </label>
-          
+
         <label>
           <input type="radio" id="waite" name="interpretation" value="waite">
           Waite
-        </label>                    
+        </label>
       </div>
     </div>
     <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
