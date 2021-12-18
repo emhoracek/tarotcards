@@ -66,12 +66,11 @@ function displayExplanation(interpretation) {
 
       let main = document.querySelector(".explanation-main")
       main.style.display = "block"
+      main.scrollTop = 0;
 
       let title = document.querySelector(".explainer-title")
       title.innerText = "Divinatory Text: " + selectedCard["title"]
 
-      let positiveh = document.querySelector(".explanation-positive h1")
-      positiveh.innerText = map[interpretation].positiveTitle
       let negativeh = document.querySelector(".explanation-negative h1")
       negativeh.innerText = map[interpretation].negativeTitle
 
