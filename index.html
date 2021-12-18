@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5"/>
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <title>tarot cards</title>
+
+    <!-- Meta tags for SEO and social sharing -->
+    <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
+    <meta
+      name="description"
+      content="...obtain wisdom from the cyber oracles..."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="tarot cards" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://tarotcards.glitch.me/" />
+    <meta
+      property="og:description"
+      content="..obtain hidden wisdom from the cyber oracles..."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.me/6f22b01f-863d-42d0-b982-19a1a5d07120/1M.JPG?v=1639789266862"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="/cards.js" defer></script>
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="underConstruction">
+        <p class="warning">
+          Warning: I'm currently working on this page and the work auto-deploys
+          to so you'll see a lot of bugs. When I'm done, I'll remove this
+          header.
+        </p>
+        <img
+          src="https://64.media.tumblr.com/f0da7c50d726e64c6c0d8a985240b6f4/dfbbb68a95adf2d4-ce/s1280x1920/12d1e09ee5340b82fe8204c83ee6107595bc9202.gifv"
+        />
+      </div>
+      <div id="table">
+        <div id="camera">
+          <div class="deck">
+            <p>
+              Click to draw
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="explainer">
+      <div class="explainer-titlebar">
+        <div class="explainer-title">
+          Divinatory text
+        </div>
+        <div class="explainer-button">
+          ✕
+        </div>
+      </div>
+      <div class="explanation">
+        <div class="explanation-positive">
+          <header><h1>Positive</h1></header>
+          <p>
+            Positive interpretation of the card.
+          </p>
+        </div>
+        <div class="explanation-negative">
+          <header><h1>Negative</h1></header>
+          <p>
+            Negative interpretation of the card.
+          </p>
+        </div>
+      </div>
+      <div id="explainer-options">
+        <label>
+          <input type="radio" id="cs" checked name="interpretation" value="cs">
+          Coleman-Smith
+        </label>
+          
+        <label>
+          <input type="radio" id="waite" name="interpretation" value="waite">
+          Waite
+        </label>                    
+      </div>
+    </div>
+    <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
+    <footer class="footer">
+      <p>
+        This uses the 1996
+        <a href="http://www.m31.de/colman-smith/index.html">Coleman-Smith</a> deck.
+      </p>
+      <div class="links"></div>
+      <a
+        class="btn--remix"
+        target="_top"
+        href="https://glitch.com/edit/#!/remix/glitch-hello-website"
+      >
+        <img
+          src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
+          alt=""
+        />
+        Remix on Glitch
+      </a>
+    </footer>
+  </body>
+</html>
