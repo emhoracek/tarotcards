@@ -67,8 +67,8 @@ function displayExplanation(interpretation) {
       let main = document.querySelector(".explanation-main")
       main.style.display = "block"
 
-      let main = document.querySelector(".explanation-main")
-      main.style.display = "block"
+      let title = document.querySelector(".explainer-title")
+      title.innerText = "Divinatory Text: " + selectedCard["title"]
 
       let positiveh = document.querySelector(".explanation-positive h1")
       positiveh.innerText = map[interpretation].positiveTitle
@@ -80,6 +80,9 @@ function displayExplanation(interpretation) {
       let negativep = document.querySelector(".explanation-negative p")
       negativep.innerText = map[interpretation].negative
     } else {
+      let title = document.querySelector(".explainer-title")
+      title.innerText = "Divinatory Text"
+
       const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
       placeholder.style.display = "block"
 
@@ -87,6 +90,9 @@ function displayExplanation(interpretation) {
       main.style.display = "none"
     }
   } else {
+    let title = document.querySelector(".explainer-title")
+    title.innerText = "Divinatory Text"
+
     const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
     placeholder.style.display = "block"
 
