@@ -116,6 +116,7 @@
   background: darkgray;
   margin: 2px;
   font-size: 0.75em;
+  cursor: default;
 }
 
 .wrapper {
@@ -161,6 +162,7 @@
   height: 270px;
   margin: 5px;
   padding: 5px;
+  cursor: pointer;
   background:linear-gradient(146deg, rgba(38, 230, 250, 1) 0%, rgba(140, 5, 227, 1) 70%, rgba(88, 11, 137, 1) 100%);
 }
 
@@ -196,6 +198,7 @@
   text-align: center;
   border: 1px solid darkblue;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .selected > .button {
