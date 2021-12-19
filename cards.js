@@ -8,7 +8,8 @@ const cards = [
     "csnegative": "Foolish amidst excitement and fear, blind.",
     "waiteregular": "Folly, mania, extravagance, intoxication, delirium, frenzy, bewrayment.",
     "waitereversed": "Negligence, absence, distribution, carelessness, apathy, nullity, vanity.",
-    "waitedesc": "With light step, as if earth and its trammels had little power to restrain him, a young man in gorgeous vestments pauses at the brink of a precipice among the great heights of the world; he surveys the blue distance before him - its expanse of sky rather than the prospect below. His act of eager walking is still indicated, though he is stationary at the given moment; his dog is still bounding. The edge which opens on the depth has no terror; it is as if angels were waiting to uphold him, if it came about that he leaped from the height. His countenance is full of intelligence and expectant dream. He has a rose in one hand and in the other a costly wand, from which depends over his right shoulder a wallet curiously embroidered. He is a prince of the other world on his travels through this one - all amidst the morning glory, in the keen air. The sun, which shines behind him, knows whence he came, whither he is going, and how he will return by another path after many days."
+    "longdesc": "With light step, as if earth and its trammels had little power to restrain him, a young man in gorgeous vestments pauses at the brink of a precipice among the great heights of the world; he surveys the blue distance before him - its expanse of sky rather than the prospect below. His act of eager walking is still indicated, though he is stationary at the given moment; his dog is still bounding. The edge which opens on the depth has no terror; it is as if angels were waiting to uphold him, if it came about that he leaped from the height. His countenance is full of intelligence and expectant dream. He has a rose in one hand and in the other a costly wand, from which depends over his right shoulder a wallet curiously embroidered. He is a prince of the other world on his travels through this one - all amidst the morning glory, in the keen air. The sun, which shines behind him, knows whence he came, whither he is going, and how he will return by another path after many days.",
+    "shortdesc": "A young man pauses at the brink of a precipice. His dog bounds beside him. He has a rose in one hand a bindle in the other."
   },
   {
     "label": "The Magician",
@@ -19,7 +20,8 @@ const cards = [
     "csnegative": "Tricky, treacherous, leads us often to dangerous and frustrating places; to follow the inner guide does not always mean making the choices which are secure and guarantee results.",
     "waiteregular": "Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male.",
     "waitereversed": "Physician, Magus, mental disease, disgrace, disquiet.",
-    "waitedesc": "A youthful figure in the robe of a magician, with smile of confidence and shining eyes. Above his head is the mysterious sign of life, forming the figure 8 in a horizontal position . About his waist is a serpent-cincture, the serpent appearing to devour its own tail. In the Magician's right hand is a wand raised towards heaven, while the left hand is pointing to the earth. On the table in front of the Magician are the symbols of the four Tarot suits. Beneath are roses and lilies."
+    "longdesc": "A youthful figure in the robe of a magician, with smile of confidence and shining eyes. Above his head is the mysterious sign of life, forming the figure 8 in a horizontal position . About his waist is a serpent-cincture, the serpent appearing to devour its own tail. In the Magician's right hand is a wand raised towards heaven, while the left hand is pointing to the earth. On the table in front of the Magician are the symbols of the four Tarot suits. Beneath are roses and lilies.",
+    "shortdesc": "A smiling figure in a robe beneath a symbol of eternity. His right hand raises a wand while the left points to the earth."
   },
   {
     "label": "The High Priestess",
@@ -30,7 +32,8 @@ const cards = [
     "csnegative": "Platonic love, encounter of some kind with the hidden inner world, confusion.",
     "waiteregular": "Secrets, mystery, the future as yet unrevealed; the woman who interests the Querent, if male; the Querent herself, if female; silence, tenacity; mystery, wisdom, science.",
     "waitereversed": "Passion, moral or physical ardour, conceit, surface knowledge.",
-    "waitedesc": "She has the lunar crescent at her feet, a horned diadem on her head, with a globe in the middle place, and a large solar cross on her breast. The scroll in her hands is inscribed with the word Tora. It is partly covered by her mantle. She is seated between the white and black pillars of the mystic Temple, and the veil of the Temple is behind her: it is embroidered with palms and pomegranates. The vestments are flowing and gauzy."
+    "longdesc": "She has the lunar crescent at her feet, a horned diadem on her head, with a globe in the middle place, and a large solar cross on her breast. The scroll in her hands is inscribed with the word Tora. It is partly covered by her mantle. She is seated between the white and black pillars of the mystic Temple, and the veil of the Temple is behind her: it is embroidered with palms and pomegranates. The vestments are flowing and gauzy.",
+    "shortdesc": "A woman holding a scroll, a lunar crescent at her feet, a diadem on her head, and a large solar cross on her breast."
   },
   {
     "label": "The Empress",
@@ -41,7 +44,8 @@ const cards = [
     "csnegative": "Stagnation of the spirit, apathy, mourning mother, which crush all possibility of change, full of bitterness and resentment because life requires change and separation and endings must occur.",
     "waiteregular": "Fruitfulness, action, initiative, length of days; the unknown, clandestine; also difficulty, doubt, ignorance.",
     "waitereversed": "Light, truth, the unravelling of involved matters, public rejoicings; according to another reading, vacillation.",
-    "waitedesc": "A stately figure, seated, having rich vestments and royal aspect, as of a daughter of heaven and earth. Her diadem is of twelve stars, gathered in a cluster. The symbol of Venus is on the shield which rests near her. A field of corn is ripening in front of her, and beyond there is a fall of water. The sceptre which she bears is surmounted by the globe of this world."
+    "longdesc": "A stately figure, seated, having rich vestments and royal aspect, as of a daughter of heaven and earth. Her diadem is of twelve stars, gathered in a cluster. The symbol of Venus is on the shield which rests near her. A field of corn is ripening in front of her, and beyond there is a fall of water. The sceptre which she bears is surmounted by the globe of this world.",
+    "shortdesc": "A stately figure in rich vestmests, seated. She has a scepter and a diadem is of twelve stars."
   },
   {
     "label": "The Emperor",
@@ -52,7 +56,8 @@ const cards = [
     "csnegative": "Rigidity, implacable self-righteousness, inflexibility, arrogance, tyrants, dogma against human feelings.",
     "waiteregular": "Stability, power, protection, realization; a great person; aid, reason, conviction; also authority and will.",
     "waitereversed": "Benevolence, compassion, credit; also confusion to enemies, obstruction, immaturity.",
-    "waitedesc": "He is a crowned monarch - commanding, stately, seated on a throne, the arms of which axe fronted by rams' heads. He has a form of the Crux ansata for his sceptre and a globe in his left hand. Mountains rise in the background."
+    "longdesc": "He is a crowned monarch - commanding, stately, seated on a throne, the arms of which are fronted by rams' heads. He has a form of the Crux ansata for his sceptre and a globe in his left hand. Mountains rise in the background.",
+    "shortdesc": "He holds a sceptre in his right hand and a globe in his left. The arms of the throne are fronted by rams' heads."
   },
   {
     "label": "The Hierophant",
@@ -63,7 +68,8 @@ const cards = [
     "csnegative": "Mistrust, knowledge out of books instead out of life, hypocritical, credulous.",
     "waiteregular": "Marriage, alliance, captivity, servitude; by another account, mercy and goodness; inspiration; the man to whom the Querent has recourse.",
     "waitereversed": "Society, good understanding, concord, overkindness, weakness.",
-    "waitedesc": "He wears the triple crown and is seated between two pillars. In his left hand he holds a sceptre terminating in the triple cross. He raises two fingers of his right hand in a gesture of benediction. At his feet are the crossed keys, and two priestly ministers in albs kneel before him."
+    "longdesc": "He wears the triple crown and is seated between two pillars. In his left hand he holds a sceptre terminating in the triple cross. He raises two fingers of his right hand in a gesture of benediction. At his feet are the crossed keys, and two priestly ministers in albs kneel before him.",
+    "shortdesc": "He holds a sceptre and gives a sign of benediction. At his feet are crossed keys. Two ministers kneel before him."
   },
   {
     "label": "The Lovers",
@@ -74,7 +80,8 @@ const cards = [
     "csnegative": "driven blindly by desires, doubtful.",
     "waiteregular": "Attraction, love, beauty, trials overcome.",
     "waitereversed": "Failure, foolish designs. Another account speaks of marriage frustrated and contrarieties of all kinds.",
-    "waitedesc": "The sun shines in the zenith, and beneath is a great winged figure with arms extended, pouring down influences. In the foreground are two human figures, male and female, unveiled before each other, as if Adam and Eve when they first occupied the paradise of the earthly body. Behind the man is the Tree of Life, bearing twelve fruits, and the Tree of the Knowledge of Good and Evil is behind the woman; the serpent is twining round it. The figures suggest youth, virginity, innocence and love before it is contaminated by gross material desire."
+    "longdesc": "The sun shines in the zenith, and beneath is a great winged figure with arms extended, pouring down influences. In the foreground are two human figures, male and female, unveiled before each other, as if Adam and Eve when they first occupied the paradise of the earthly body. Behind the man is the Tree of Life, bearing twelve fruits, and the Tree of the Knowledge of Good and Evil is behind the woman; the serpent is twining round it. The figures suggest youth, virginity, innocence and love before it is contaminated by gross material desire.",
+    "shortdesc": "A nude man and woman in front of two fruiting trees, watched by an angel. A serpent twines round the tree behind the woman."
   },
   {
     "label": "The Chariot",
@@ -85,7 +92,8 @@ const cards = [
     "csnegative": "lust for destruction, brute strength and lack of refinement.",
     "waiteregular": "Succour, providence also war, triumph, presumption, vengeance, trouble.",
     "waitereversed": "Riot, quarrel, dispute, litigation, defeat.",
-    "waitedesc": "An erect and princely figure driving a chariot drawn by two sphinxes - one black and one white. He carries a sword. On the shoulders of the victorious hero are supposed to be the Urim and Thummim. The chariot bears a coat of arms depicting the masonic symbol of a mallet for self-control. The chariot has a canopy of fabric covered in stars."
+    "longdesc": "An erect and princely figure driving a chariot drawn by two sphinxes - one black and one white. He carries a sword. On the shoulders of the victorious hero are supposed to be the Urim and Thummim. The chariot bears a coat of arms depicting the masonic symbol of a mallet for self-control. The chariot has a canopy of fabric covered in stars.",
+    "shortdesc": "An figure carrying a sword driving a chariot drawn by two sphinxes - one black and one white."
   },
   {
     "label": "Strength",
@@ -96,7 +104,8 @@ const cards = [
     "csnegative": "Repressed instinct without any transformation, leaving behind a strong shell within a soul without passion and without a true identity.",
     "waiteregular": "Power, energy, action, courage, magnanimity; also complete success and honours.",
     "waitereversed": "Despotism, abuse if power, weakness, discord, sometimes even disgrace.",
-    "waitedesc": "A woman in a white flowing gown, over whose head there broods the figure-8 symbol of eternal life, is closing the jaws of a lion. She has already subdued the lion, which is being led by a chain of flowers."
+    "longdesc": "A woman in a white flowing gown, over whose head there broods the figure-8 symbol of eternal life, is closing the jaws of a lion. She has already subdued the lion, which is being led by a chain of flowers.",
+    "shortdesc": "A woman closing the jaws of a lion. Over her head is the eternity symbol. The lion is led by a chain of flowers."
   },
   {
     "label": "The Hermit",
@@ -107,7 +116,8 @@ const cards = [
     "csnegative": "Estrangement, abandonment.",
     "waiteregular": "Prudence, circumspection; also and especially treason, dissimulation, roguery, corruption.",
     "waitereversed": "Concealment, disguise, policy, fear, unreasoned caution.",
-    "waitedesc": "An old man in long gray robes, standing on a mountain peak, carries a staff in one hand and a lit lantern containing a six-pointed star in the other. In the background is a mountain range."
+    "longdesc": "An old man in long gray robes, standing on a mountain peak, carries a staff in one hand and a lit lantern containing a six-pointed star in the other. In the background is a mountain range.",
+    "shortdesc": "An old man carries a staff in one hand and a lit lantern containing a six-pointed star in the other."
   },
   {
     "label": "Wheel of Fortune",
@@ -118,7 +128,8 @@ const cards = [
     "csnegative": "Being out of control, burden of fate.",
     "waiteregular": "Destiny, fortune, success, elevation, luck, felicity.",
     "waitereversed": "Increase, abundance, superfluity.",
-    "waitedesc": "A wheel in a blue sky surrounded by several beings. An angel, an eagle, a winged ox, and a winged lion read books in the clouds.  On the left of the wheel is a snake. Below the wheel, as if carrying it on his back, is the Egyptian god Anubis. On the top of the wheel is the sphinx. The letters \"T\", \"A\", \"R\", and \"O\" are inscribed on the wheel."
+    "longdesc": "A wheel in a blue sky surrounded by several beings. An angel, an eagle, a winged ox, and a winged lion read books in the clouds.  On the left of the wheel is a snake. Below the wheel, as if carrying it on his back, is the Egyptian god Anubis. On the top of the wheel is the sphinx. The letters \"T\", \"A\", \"R\", and \"O\" are inscribed on the wheel.",
+    "shortdesc": "A wheel bearing the letters \"T\", \"A\", \"R\", and \"O\".  Several beings, including Anubis and a sphinx, surround the wheel."
   },
   {
     "label": "Justice",
@@ -129,7 +140,8 @@ const cards = [
     "csnegative": "Cool, too idealistic and too destructive to the warmth of personal relationship.",
     "waiteregular": "Equity, rightness, probity, executive; triumph of the deserving side in law.",
     "waitereversed": "Law in all its departments, legal complications, bigotry, bias, excessive severity.",
-    "waitedesc": "A robed figure seated between pillars. He points a sword skyward in his right hand and balances scales in his left."
+    "longdesc": "A robed figure seated between pillars. He points a sword skyward in his right hand and balances scales in his left.",
+    "shortdesc": "A robed figure seated between pillars. He points a sword skyward in his right hand and balances scales in his left."
   },
   {
     "label": "The Hanged Man",
@@ -140,7 +152,8 @@ const cards = [
     "csnegative": "Suffering in order to manipulate others, staying passive about a situation from which one could extricate oneself quite easily.",
     "waiteregular": "Wisdom, circumspection, discernment, trials, sacrifice, intuition, divination, prophecy.",
     "waitereversed": "Selfishness, the crowd, body politic.",
-    "waitedesc": "A man hangs upside-down from a living tree. The gallows from which he is suspended forms a Tau cross, while the figure - from the position of the legs - forms a fylfot cross. There is a nimbus about the head of the seeming martyr. The face expresses deep entrancement, not suffering."
+    "longdesc": "A man hangs upside-down from a living tree. The gallows from which he is suspended forms a Tau cross, while the figure - from the position of the legs - forms a fylfot cross. There is a nimbus about the head of the seeming martyr. The face expresses deep entrancement, not suffering.",
+    "shortdesc": "A man hangs upside-down from a living tree. His legs form a figure-4. He has a halo around his head."
   },
   {
     "label": "Death",
@@ -151,7 +164,8 @@ const cards = [
     "csnegative": "Depression, because there has not yet been an acknowledgment that a phase of life has died at the same time that a new thing has been born.",
     "waiteregular": "End, mortality, destruction, corruption also, for a man, the loss of a benefactor for a woman, many contrarieties; for a maid, failure of marriage projects.",
     "waitereversed": "Inertia, sleep, lethargy, petrifaction, somnambulism; hope destroyed.",
-    "waitedesc": "The Grim Reaper rides a pale horse. The mysterious horseman moves slowly, bearing a black banner emblazoned with the Mystic Rose. The horseman carries no visible weapon, but king and child and maiden fall before him, while a prelate with clasped hands awaits his end.  Between two pillars on the verge of the horizon there shines the sun of immortality."
+    "longdesc": "The Grim Reaper rides a pale horse. The mysterious horseman moves slowly, bearing a black banner emblazoned with the Mystic Rose. The horseman carries no visible weapon, but king and child and maiden fall before him, while a prelate with clasped hands awaits his end.  Between two pillars on the verge of the horizon there shines the sun of immortality.",
+    "shortdesc": "He rides a pale horse and bears a black banner emblazoned with a rose. The dead and dying surround him."
   },
   {
     "label": "Temperance",
@@ -162,7 +176,8 @@ const cards = [
     "csnegative": "Too much harmony oriented, where no change is allowed to occur and the mind suffocates from sheer boredom.",
     "waiteregular": "Economy, moderation, frugality, management, accommodation.",
     "waitereversed": "Things connected with churches, religions, sects, the priesthood, sometimes even the priest who will marry the Querent; also disunion, unfortunate combinations, competing interests.",
-    "waitedesc": "A winged angel, with the sign of the sun upon his forehead and on his breast the square and triangle of the septenary. I speak of him in the masculine sense, but the figure is neither male nor female. It is held to be pouring the essences of life from chalice to chalice. It has one foot upon the earth and one upon waters, thus illustrating the nature of the essences. A direct path goes up to certain heights on the verge of the horizon, and above there is a great light, through which a crown is seen vaguely."
+    "longdesc": "A winged angel, with the sign of the sun upon his forehead and on his breast the square and triangle of the septenary. I speak of him in the masculine sense, but the figure is neither male nor female. It is held to be pouring the essences of life from chalice to chalice. It has one foot upon the earth and one upon waters, thus illustrating the nature of the essences. A direct path goes up to certain heights on the verge of the horizon, and above there is a great light, through which a crown is seen vaguely.",
+    "shortdesc": "A winged angel pours water from chalice to chalice. It has one foot upon the earth and one upon waters."
   },
   {
     "label": "The Devil",
@@ -173,7 +188,8 @@ const cards = [
     "csnegative": "Careless of result.",
     "waiteregular": "Ravage, violence, vehemence, extraordinary efforts, force, fatality; that which is predestined but is not for this reason evil.",
     "waitereversed": "Evil fatality, weakness, pettiness, blindness.",
-    "waitedesc": "The Horned Goat of Mendes, with wings like those of a bat, is standing on an altar. At the pit of the stomach there is the sign of Mercury. The right hand is upraised and extended, being the reverse of that benediction which is given by the Hierophant in the fifth card. In the left hand there is a great flaming torch, inverted towards the earth. A reversed pentagram is on the forehead. There is a ring in front of the altar, from which two chains are carried to the necks of two nude figures, male and female. The figures are horned and tailed, to signify the animal nature, but there is human intelligence in the faces."
+    "longdesc": "The Horned Goat of Mendes, with wings like those of a bat, is standing on an altar. At the pit of the stomach there is the sign of Mercury. The right hand is upraised and extended, being the reverse of that benediction which is given by the Hierophant in the fifth card. In the left hand there is a great flaming torch, inverted towards the earth. A reversed pentagram is on the forehead. There is a ring in front of the altar, from which two chains are carried to the necks of two nude figures, male and female. The figures are horned and tailed, to signify the animal nature, but there is human intelligence in the faces.",
+    "shortdesc": "A Horned Goat with bat wings and a reversed pentagram on its forehead. Two nude figures with horns and tails stand in chains."
   },
   {
     "label": "The Tower",
@@ -184,7 +200,8 @@ const cards = [
     "csnegative": "Without looking inward it can be a stagnant state.",
     "waiteregular": "Misery, distress, indigence, adversity, calamity, disgrace, deception, ruin. It is a card in particular of unforeseen catastrophe.",
     "waitereversed": "According to one account, the same in a lesser degree also oppression, imprisonment, tyranny.",
-    "waitedesc": "A tall tower in a cloudy, black sky is struck by lightning, removing its golden, crown-shaped roof. Fire emerges from broken roof and the windows. Two people scream as they fall from the tower to the rocks below."
+    "longdesc": "A tall tower in a cloudy, black sky is struck by lightning, removing its golden, crown-shaped roof. Fire emerges from the broken roof and the windows. Two people scream as they fall from the tower to the rocks below.",
+    "shortdesc": "A tower is struck by lightning. Fire emerges from the roof and windows. Two people fall from the tower."
   },
   {
     "label": "The Star",
@@ -195,7 +212,8 @@ const cards = [
     "csnegative": "Blind hope.",
     "waiteregular": "Loss, theft, privation, abandonment; another reading says-hope and bright prospects,",
     "waitereversed": "Arrogance, haughtiness, impotence.",
-    "waitedesc": "A naked woman kneels by the water; one foot is in the water and one foot is on the land. Above her head is one great, radiant star of eight rays, surrounded by seven lesser stars--also of eight rays. She pours Water of Life from two great ewers, irrigating sea and land. The figure expresses eternal youth and beauty. Behind her is rising ground and on the right a shrub or tree, whereon a bird alights."
+    "longdesc": "A naked woman kneels by the water; one foot is in the water and one foot is on the land. Above her head is one great, radiant star of eight rays, surrounded by seven lesser stars--also of eight rays. She pours Water of Life from two great ewers, irrigating sea and land. The figure expresses eternal youth and beauty. Behind her is rising ground and on the right a shrub or tree, whereon a bird alights.",
+    "shortdesc": "A naked woman pours water from two ewers, into the sea and on the land. Above her is a large star and seven lesser stars."
   },
   {
     "label": "The Moon",
@@ -206,7 +224,8 @@ const cards = [
     "csnegative": "Resistant activity and mind-energy.",
     "waiteregular": "Hidden enemies, danger, calumny, darkness, terror, deception, occult forces, error.",
     "waitereversed": "Instability, inconstancy, silence, lesser degrees of deception and error.",
-    "waitedesc": "The card depicts a night scene, where two large pillars are shown. A wolf and a domesticated dog howl at the Moon while a crayfish emerges from the water. The Moon has sixteen chief and sixteen secondary rays is shedding the moisture of fertilizing dew in great drops. The moon is increasing on what is called the side of mercy, to the right of the observer. It has sixteen chief and sixteen secondary rays. The path between the towers is the issue into the unknown. The face of the Moon directs a calm gaze upon the unrest below,"
+    "longdesc": "The card depicts a night scene, where two large pillars are shown. A wolf and a domesticated dog howl at the Moon while a crayfish emerges from the water. The Moon has sixteen chief and sixteen secondary rays is shedding the moisture of fertilizing dew in great drops. The moon is increasing on what is called the side of mercy, to the right of the observer. It has sixteen chief and sixteen secondary rays. The path between the towers is the issue into the unknown. The face of the Moon directs a calm gaze upon the unrest below,",
+    "shortdesc": "A wolf and a dog howl at the Moon while a crayfish emerges from the water."
   },
   {
     "label": "The Sun",
@@ -217,7 +236,8 @@ const cards = [
     "csnegative": "The burning heat of the sun can destroy, for one who does not respect nature's law.",
     "waiteregular": "Material happiness, fortunate marriage, contentment.",
     "waitereversed": "The same in a lesser sense.",
-    "waitedesc": "A naked child mounted on a white horse and displaying a red standard. Behind them, an anthropomorphized sun shines on a garden of sunflowers."
+    "longdesc": "A naked child mounted on a white horse and displaying a red standard. Behind them, an anthropomorphized sun shines on a garden of sunflowers.",
+    "shortdesc": "A naked child mounted on a white horse and displaying a red standard. The sun shines on a garden of sunflowers."
   },
   {
     "label": "Judgment",
@@ -228,7 +248,8 @@ const cards = [
     "csnegative": "Self-made-prison.",
     "waiteregular": "Change of position, renewal, outcome. Another account specifies total loss though lawsuit.",
     "waitereversed": "Weakness, pusillanimity, simplicity; also deliberation, decision, sentence.",
-    "waitedesc": "A great angel encompassed by clouds blows his bannered trumpet. A cross is displayed on the banner. The dead are rising from their tombs--a woman on the right, a man on the left hand, and between them their child, whose back is turned. It should be noted that all the figures are as one in the wonder, adoration and ecstacy expressed by their attitudes."
+    "longdesc": "A great angel encompassed by clouds blows his bannered trumpet. A cross is displayed on the banner. The dead are rising from their tombs--a woman on the right, a man on the left hand, and between them their child, whose back is turned. It should be noted that all the figures are as one in the wonder, adoration and ecstacy expressed by their attitudes.",
+    "shortdesc": "A great angel encompassed by clouds blows his bannered trumpet and the dead rise from their tombs."
   },
   {
     "label": "The World",
@@ -239,7 +260,8 @@ const cards = [
     "csnegative": "(Missing from text.)",
     "waiteregular": "Assured success, recompense, voyage, route, emigration, flight, change of place.",
     "waitereversed": "Inertia, fixity, stagnation, permanence.",
-    "waitedesc": "A naked woman hovers or dances above the Earth holding a staff in each hand, surrounded by a wreath, being watched by the four living creatures (or hayyoth) of Jewish mythology: a man, a lion, an ox, and an eagle."
+    "longdesc": "A naked woman hovers or dances above the Earth holding a staff in each hand, surrounded by a wreath, being watched by the four living creatures (or hayyoth) of Jewish mythology: a man, a lion, an ox, and an eagle.",
+    "shortdesc": "A naked woman dances in the sky. She holds a staff in each hand. A man, a lion, an ox, and an eagle are in each corner."
   },
   {
     "label": "Ace of Wands",
@@ -250,7 +272,8 @@ const cards = [
     "csnegative": "Bulldozer, rash and impulsive action, dissatisfaction.",
     "waiteregular": "Creation, invention, enterprise, the powers which result in these; principle, beginning, source; birth, family, origin, and in a sense the virility which is behind them; the starting point of enterprises; according to another account, money, fortune, inheritance.",
     "waitereversed": "Fall, decadence, ruin, perdition, to perish also a certain clouded joy.",
-    "waitedesc": "A hand issuing from a cloud grasps a stout wand or club."
+    "longdesc": "A hand issuing from a cloud grasps a stout wand or club.",
+    "shortdesc": "A hand issuing from a cloud grasps a stout wand or club."
   },
   {
     "label": "Two of Wands",
@@ -261,7 +284,8 @@ const cards = [
     "csnegative": "Tendency to exaggerate.",
     "waiteregular": "On the one hand, riches, fortune, magnificence; on the other, physical suffering, disease, chagrin, sadness, mortification. The design gives one suggestion; here is a lord overlooking his dominion and alternately contemplating a globe; it looks like the malady, the mortification, the sadness of Alexander amidst the grandeur of this world's wealth.",
     "waitereversed": "Surprise, wonder, enchantment, emotion, trouble, fear.",
-    "waitedesc": "A tall man looks from a battlemented roof over sea and shore; he holds a globe in his right hand, while a staff in his left rests on the battlement; another is fixed in a ring. The Rose and Cross and Lily should be noticed on the left side."
+    "longdesc": "A tall man looks from a battlemented roof over sea and shore; he holds a globe in his right hand, while a staff in his left rests on the battlement; another is fixed in a ring. The Rose and Cross and Lily should be noticed on the left side.",
+    "shortdesc": "A man looks out from a roof; he holds a globe in his right hand and a staff in his left, another staff beside him."
   },
   {
     "label": "Three of Wands",
@@ -272,7 +296,8 @@ const cards = [
     "csnegative": "Moral, conceit, not willing to finish a potential idea to realize it totally, unfinished projects.",
     "waiteregular": "He symbolizes established strength, enterprise, effort, trade, commerce, discovery; those are his ships, bearing his merchandise, which are sailing over the sea. The card also signifies able co-operation in business, as if the successful merchant prince were looking from his side towards yours with a view to help you.",
     "waitereversed": "The end of troubles, suspension or cessation of adversity, toil and disappointment.",
-    "waitedesc": "A calm, stately personage, with his back turned, looking from a cliff's edge at ships passing over the sea. Three staves are planted in the ground, and he leans slightly on one of them."
+    "longdesc": "A calm, stately personage, with his back turned, looking from a cliff's edge at ships passing over the sea. Three staves are planted in the ground, and he leans slightly on one of them.",
+    "shortdesc": "A person watching ships passing over the sea. Three staves are planted in the ground. He leans slightly on one of them."
   },
   {
     "label": "Four of Wands",
@@ -283,7 +308,8 @@ const cards = [
     "csnegative": "Exclusivity, snobbery.",
     "waiteregular": "Country life, haven of refuge, a species of domestic harvest-home, repose, concord, harmony, prosperity, peace, and the perfected work of these.",
     "waitereversed": "The meaning remains unaltered; it is prosperity, increase, felicity, beauty, embellishment.",
-    "waitedesc": "From the four great staves planted in the foreground there is a great garland suspended; two female figures uplift nosegays; at their side is a bridge over a moat, leading to an old manorial house."
+    "longdesc": "From the four great staves planted in the foreground there is a great garland suspended; two female figures uplift nosegays; at their side is a bridge over a moat, leading to an old manorial house.",
+    "shortdesc": "A garland is suspended between great staves planted in the ground. Behind the, two female figures lift flowers in the air."
   },
   {
     "label": "Five of Wands",
@@ -294,7 +320,8 @@ const cards = [
     "csnegative": "Violence, cruelty, fear of failure, deep apathy, resisting change.",
     "waiteregular": "Imitation, as, for example, sham fight, but also the strenuous competition and struggle of the search after riches and fortune. In this sense it connects with the battle of life. Hence some attributions say that it is a card of gold, gain, opulence.",
     "waitereversed": "Litigation, disputes, trickery, contradiction.",
-    "waitedesc": "A posse of youths, who are brandishing staves, as if in sport or strife."
+    "longdesc": "A posse of youths, who are brandishing staves, as if in sport or strife.",
+    "shortdesc": "A posse of youths, who are brandishing staves, as if in sport or strife."
   },
   {
     "label": "Six of Wands",
@@ -305,7 +332,8 @@ const cards = [
     "csnegative": "Using one's reputation to bully and domineer others.",
     "waiteregular": "A victor triumphing, but it is also great news, such as might be carried in state by the King's courier; it is expectation crowned with its own desire, the crown of hope, and so forth.",
     "waitereversed": "Apprehension, fear, as of a victorious enemy at the gate; treachery, disloyalty, as of gates being opened to the enemy; also indefinite delay.",
-    "waitedesc": "A laurelled horseman bears one staff adorned with a laurel crown; footmen with staves are at his side."
+    "longdesc": "A laurelled horseman bears one staff adorned with a laurel crown; footmen with staves are at his side.",
+    "shortdesc": "A laurelled horseman bears one staff adorned with a laurel crown; footmen with staves are at his side."
   },
   {
     "label": "Seven of Wands",
@@ -316,7 +344,8 @@ const cards = [
     "csnegative": "Struggle with other people's creative ideas, stiff competition.",
     "waiteregular": "Valour. On the intellectual plane, it signifies discussion, wordy strife; in business--negotiations, war of trade, barter, competition. It is further a card of success, for the combatant is on the top and his enemies may be unable to reach him.",
     "waitereversed": "Perplexity, embarrassments, anxiety. It is also a caution against indecision.",
-    "waitedesc": "A young man on a craggy eminence brandishing a staff; six other staves are raised towards him from below."
+    "longdesc": "A young man on a craggy eminence brandishing a staff; six other staves are raised towards him from below.",
+    "shortdesc": "A young man on a craggy eminence brandishing a staff; six other staves are raised towards him from below."
   },
   {
     "label": "Eight of Wands",
@@ -327,7 +356,8 @@ const cards = [
     "csnegative": "Being trapped by your own reputation, violent but not lasting.",
     "waiteregular": "Activity in undertakings, the path of such activity, swiftness, as that of an express messenger; great haste, great hope, speed towards an end which promises assured felicity; generally, that which is on the move; also the arrows of love.",
     "waitereversed": "Arrows of jealousy, internal dispute, stingings of conscience, quarrels; and domestic disputes for persons who are married.",
-    "waitedesc": "Eight diagonal staves of staggered length angled across an open landscape with river."
+    "longdesc": "Eight diagonal staves of staggered length angled across an open landscape with river.",
+    "shortdesc": "Eight diagonal staves of staggered length angled across an open landscape with river."
   },
   {
     "label": "Nine of Wands",
@@ -338,7 +368,8 @@ const cards = [
     "csnegative": "Cruelty through extreme egoistically self-detachment.",
     "waiteregular": "Strength in opposition. If attacked, the person will meet an onslaught boldly; and his build shews, that he may prove a formidable antagonist. With this main significance there are all its possible adjuncts--delay, suspension, adjournment.",
     "waitereversed": "Obstacles, adversity, calamity",
-    "waitedesc": "The figure leans upon his staff and has an expectant look, as if awaiting an enemy. Behind are eight other staves - erect, in orderly disposition, like a palisade."
+    "longdesc": "The figure leans upon his staff and has an expectant look, as if awaiting an enemy. Behind are eight other staves - erect, in orderly disposition, like a palisade.",
+    "shortdesc": "The figure leans upon his staff with an expectant look. Behind eight more staves are arranged like a palisade."
   },
   {
     "label": "Ten of Wands",
@@ -349,7 +380,8 @@ const cards = [
     "csnegative": "Resisting the inevitable can lead to becoming a victim.",
     "waiteregular": "Oppression simply, but also fortune, gain, any kind of success, and then it is the oppression of these things. It is also a card of false-seeming, disguise, perfidy. The place which the figure is approaching may suffer from the rods that he carries. Success is stultified if the Nine of Swords follows, and if it is a question of a lawsuit, there will be certain loss.",
     "waitereversed": "Contrarieties, difficulties, intrigues, and their analogies.",
-    "waitedesc": "A man oppressed by the weight of the ten staves which he is carrying."
+    "longdesc": "A man oppressed by the weight of the ten staves which he is carrying.",
+    "shortdesc": "A man oppressed by the weight of the ten staves which he is carrying."
   },
   {
     "label": "Page of Wands",
@@ -360,7 +392,8 @@ const cards = [
     "csnegative": "A fly-by-night.",
     "waiteregular": "Dark young man, faithful, a lover, an envoy, a postman. Beside a man, he will bear favourable testimony concerning him. A dangerous rival, if followed by the Page of Cups. Has the chief qualities of his suit. He may signify family intelligence.",
     "waitereversed": "Anecdotes, announcements, evil news. Also indecision and the instability which accompanies it.",
-    "waitedesc": "A young man holding a staff as tall as he is, with leaves sprouting from the top. He stands in the act of proclamation, looking upwards. His robes are adorned with salamanders."
+    "longdesc": "A young man holding a staff as tall as he is, with leaves sprouting from the top. He stands in the act of proclamation, looking upwards. His robes are adorned with salamanders.",
+    "shortdesc": "A young man holds a staff with leaves sprouting from the top. He stands in the act of proclamation, looking upwards."
   },
   {
     "label": "Knight of Wands",
@@ -371,7 +404,8 @@ const cards = [
     "csnegative": "A pushy and exhausting workaholic.",
     "waiteregular": "Departure, absence, flight, emigration. A dark young man, friendly. Change of residence.",
     "waitereversed": "Rupture, division, interruption, discord.",
-    "waitedesc": "He is shewn as if upon a journey, armed with a short wand, and although mailed is not on a warlike errand. He is passing mounds or pyramids."
+    "longdesc": "He is shewn as if upon a journey, armed with a short wand, and although mailed is not on a warlike errand. He is passing mounds or pyramids.",
+    "shortdesc": "He is shewn as if upon a journey, armed with a short wand, and although mailed is not on a warlike errand."
   },
   {
     "label": "Queen of Wands",
@@ -382,7 +416,8 @@ const cards = [
     "csnegative": "Domination, capriciousness, thirst for revenge.",
     "waiteregular": "A dark woman, countrywoman, friendly, chaste, loving, honourable. If the card beside her signifies a man, she is well disposed towards him; if a woman, she is interested in the Querent. Also, love of money, or a certain success in business.",
     "waitereversed": "Good, economical, obliging, serviceable. Signifies also--but in certain positions and in the neighbourhood of other cards tending in such directions--opposition, jealousy, even deceit and infidelity.",
-    "waitedesc": "The Queen uplifts a flowering wand. Emotionally and otherwise, the Queen's personality corresponds to that of the King, but is more magnetic."
+    "longdesc": "The Queen uplifts a flowering wand. Emotionally and otherwise, the Queen's personality corresponds to that of the King, but is more magnetic.",
+    "shortdesc": "She carries a wand in her right hand and a sunflower in her left. Lions adorn her throne. A black cat sits before her."
   },
   {
     "label": "King of Wands",
@@ -393,7 +428,8 @@ const cards = [
     "csnegative": "Impatience, bad loser, male chauvinist, selfishness, fanaticism.",
     "waiteregular": "Dark man, friendly, countryman, generally married, honest and conscientious. Honesty, and may mean news concerning an unexpected heritage to fall in before very long.",
     "waitereversed": "Good, but severe; austere, yet tolerant.",
-    "waitedesc": "The King uplifts a flowering wand, and wears, like his three correspondences in the remaining suits, what is called a cap of maintenance beneath his crown. He connects with the symbol of the lion, which is emblazoned on the back of his throne."
+    "longdesc": "The King uplifts a flowering wand, and wears, like his three correspondences in the remaining suits, what is called a cap of maintenance beneath his crown. He connects with the symbol of the lion, which is emblazoned on the back of his throne.",
+    "shortdesc": "He uplifts a flowering wand. The symbol of the lion is emblazoned on the back of his throne. A lizard crawls before him."
   },
   {
     "label": "Ace of Cups",
@@ -404,7 +440,8 @@ const cards = [
     "csnegative": "Jealous, lazy, gullibility, vindictive, deceitful and treacherous.",
     "waiteregular": "House of the true heart, joy, content, abode, nourishment, abundance, fertility; Holy Table, felicity hereof.",
     "waitereversed": "House of the false heart, mutation, instability, revolution.",
-    "waitedesc": "A hand issues from a cloud, holding in its palm the cup, from which four streams are pouring; the waters are beneath, and thereon are water-lilies; a dove, bearing in its bill a cross-marked Host, descends to place the Wafer in the Cup; the dew of water is falling on all sides."
+    "longdesc": "A hand issues from a cloud, holding in its palm the cup, from which four streams are pouring; the waters are beneath, and thereon are water-lilies; a dove, bearing in its bill a cross-marked Host, descends to place the Wafer in the Cup; the dew of water is falling on all sides.",
+    "shortdesc": "A hand issues from a cloud, holding a cup, from which four streams are pouring. A dove descends, bearing a cross-marked Host."
   },
   {
     "label": "Two of Cups",
@@ -415,7 +452,8 @@ const cards = [
     "csnegative": "A regretted one-night stand.",
     "waiteregular": "Love, passion, friendship, affinity, union, concord, sympathy, the interrelation of the sexes, and--as a suggestion apart from all offices of divination--that desire which is not in Nature, but by which Nature is sanctified.",
     "waitereversed": "(Missing from text.)",
-    "waitedesc": "A youth and maiden are pledging one another, and above their cups rises the Caduceus of Hermes, between the great wings of which there appears a lion's head."
+    "longdesc": "A youth and maiden are pledging one another, and above their cups rises the Caduceus of Hermes, between the great wings of which there appears a lion's head.",
+    "shortdesc": "A youth and maiden toast one another. Above their cups rises the Caduceus of Hermes, a lion's head between its wings."
   },
   {
     "label": "Three of Cups",
@@ -426,7 +464,8 @@ const cards = [
     "csnegative": "Receiving envy.",
     "waiteregular": "The conclusion of any matter in plenty, perfection and merriment; happy issue, victory, fulfilment, solace, healing,",
     "waitereversed": "Expedition, dispatch, achievement, end. It signifies also the side of excess in physical enjoyment, and the pleasures of the senses.",
-    "waitedesc": "Maidens in a garden-ground with cups uplifted, as if pledging one another."
+    "longdesc": "Maidens in a garden-ground with cups uplifted, as if pledging one another.",
+    "shortdesc": "Maidens in a garden-ground with cups uplifted, as if toasting one another."
   },
   {
     "label": "Four of Cups",
@@ -437,7 +476,8 @@ const cards = [
     "csnegative": "Becoming accustomed, motionless, depression.",
     "waiteregular": "Weariness, disgust, aversion, imaginary vexations, as if the wine of this world had caused satiety only; another wine, as if a fairy gift, is now offered the wastrel, but he sees no consolation therein. This is also a card of blended pleasure.",
     "waitereversed": "Novelty, presage, new instruction, new relations.",
-    "waitedesc": "A young man is seated under a tree and contemplates three cups set on the grass before him; an arm issuing from a cloud offers him another cup. His expression notwithstanding is one of discontent with his environment."
+    "longdesc": "A young man is seated under a tree and contemplates three cups set on the grass before him; an arm issuing from a cloud offers him another cup. His expression notwithstanding is one of discontent with his environment.",
+    "shortdesc": "A young man seated under a tree contemplates three cups before him; an arm issuing from a cloud offers him another cup."
   },
   {
     "label": "Five of Cups",
@@ -448,7 +488,8 @@ const cards = [
     "csnegative": "Giving up to fate by refusing to deal with reality.",
     "waiteregular": "Loss, but something remains over; three have been taken, but two are left; it is a card of inheritance, patrimony, transmission, but not corresponding to expectations; with some interpreters it is a card of marriage, but not without bitterness or frustration.",
     "waitereversed": "News, alliances, affinity, consanguinity, ancestry, return, false projects.",
-    "waitedesc": "A dark, cloaked figure, looking sideways at three prone cups two others stand upright behind him; a bridge is in the background, leading to a small keep or holding."
+    "longdesc": "A dark, cloaked figure, looking sideways at three prone cups two others stand upright behind him; a bridge is in the background, leading to a small keep or holding.",
+    "shortdesc": "A dark, cloaked figure looks sideways at three prone cups. Two others stand upright behind him."
   },
   {
     "label": "Six of Cups",
@@ -459,7 +500,8 @@ const cards = [
     "csnegative": "Living in a dream, escapism.",
     "waiteregular": "The past, memories, looking back, as--for example--on childhood; happiness, enjoyment, but coming rather from the past; things that have vanished. Another reading reverses this, giving new relations, new knowledge, new environment, and then the children are disporting in an unfamiliar precinct.",
     "waitereversed": "The future, renewal, that which will come to pass presently.",
-    "waitedesc": "Children in an old garden, their cups filled with flowers."
+    "longdesc": "Children in an old garden, their cups filled with flowers.",
+    "shortdesc": "Children in an old garden, their cups filled with flowers."
   },
   {
     "label": "Seven of Cups",
@@ -470,7 +512,8 @@ const cards = [
     "csnegative": "Internal corruption, stagnation, bog, using and manipulating the emotions of others for personal gain.",
     "waiteregular": "Fairy favours, images of reflection, sentiment, imagination, things seen in the glass of contemplation; some attainment in these degrees, but nothing permanent or substantial is suggested.",
     "waitereversed": "Desire, will, determination, project.",
-    "waitedesc": "A man sees seven strange chalices of vision. The cups offer: a human head; a shrouded, glowing human figure; a snake; a castle or tower; a treasure hoard; a laurel wreath; and a dragon."
+    "longdesc": "A man sees seven strange chalices of vision. The cups offer: a human head; a shrouded, glowing human figure; a snake; a castle or tower; a treasure hoard; a laurel wreath; and a dragon.",
+    "shortdesc": "A man sees seven strange chalices bearing a head, a shrouded figure, a snake, a castle, a treasure, a wreath, and a dragon."
   },
   {
     "label": "Eight of Cups",
@@ -481,7 +524,8 @@ const cards = [
     "csnegative": "Indolence, cold self-interest and detachment, blackmail the partner in the hope of a response.",
     "waiteregular": "Joy, mildness, timidity, honour, modesty. In practice, it is usually found that the card shews the decline of a matter, or that a matter which has been thought to be important is really of slight consequence--either for good or evil.",
     "waitereversed": "Great joy, happiness, feasting.",
-    "waitedesc": "Late at night, a man of dejected aspect deserts his cups."
+    "longdesc": "Late at night, a man of dejected aspect deserts his cups.",
+    "shortdesc": "Late at night, a man of dejected aspect deserts his cups."
   },
   {
     "label": "Nine of Cups",
@@ -492,7 +536,8 @@ const cards = [
     "csnegative": "Over-possessive love.",
     "waiteregular": "Concord, contentment, physical bien-être; also victory, success, advantage; satisfaction for the Querent or person for whom the consultation is made.",
     "waitereversed": "Truth, loyalty, liberty; but the readings vary and include mistakes, imperfections, etc.",
-    "waitedesc": "A goodly personage has feasted to his heart's content, and abundant refreshment of wine is on the arched counter behind him, seeming to indicate that the future is also assured."
+    "longdesc": "A goodly personage has feasted to his heart's content, and abundant refreshment of wine is on the arched counter behind him, seeming to indicate that the future is also assured.",
+    "shortdesc": "A goodly personage has feasted to his heart's content.  Abundant refreshment of wine is on the arched counter behind him."
   },
   {
     "label": "Ten of Cups",
@@ -503,7 +548,8 @@ const cards = [
     "csnegative": "Money, sex, alcohol or drugs as an escape, rigid, delay the inevitable crises.",
     "waiteregular": "Contentment, repose of the entire heart; the perfection of that state; also perfection of human love and friendship; if with several picture-cards, a person who is taking charge of the Querent's interests; also the town, village or country inhabited by the Querent.",
     "waitereversed": "Repose of the false heart, indignation, violence.",
-    "waitedesc": "Appearance of Cups in a rainbow; it is contemplated in wonder and ecstacy by a man and woman below, evidently husband and wife. His right arm is about her; his left is raised upward; she raises her right arm. The two children dancing near them have not observed the prodigy but are happy after their own manner. There is a home-scene beyond."
+    "longdesc": "Appearance of Cups in a rainbow; it is contemplated in wonder and ecstacy by a man and woman below, evidently husband and wife. His right arm is about her; his left is raised upward; she raises her right arm. The two children dancing near them have not observed the prodigy but are happy after their own manner. There is a home-scene beyond.",
+    "shortdesc": "Cups appear in a rainbow, contemplated in wonder by a man and woman below. The two children dance near them."
   },
   {
     "label": "Page of Cups",
@@ -514,7 +560,8 @@ const cards = [
     "csnegative": "Selfishness.",
     "waiteregular": "Fair young man, one impelled to render service and with whom the Querent will be connected; a studious youth; news, message; application, reflection, meditation; also these things directed to business.",
     "waitereversed": "Taste, inclination, attachment, seduction, deception, artifice.",
-    "waitedesc": "A fair, pleasing, somewhat effeminate page, of studious and intent aspect, contemplates a fish rising from a cup to look at him."
+    "longdesc": "A fair, pleasing, somewhat effeminate page, of studious and intent aspect, contemplates a fish rising from a cup to look at him.",
+    "shortdesc": "A fair, pleasing page, of studious and intent aspect, contemplates a fish rising from a cup to look at him."
   },
   {
     "label": "Knight of Cups",
@@ -525,7 +572,8 @@ const cards = [
     "csnegative": "Lonely and exploited.",
     "waiteregular": "Arrival, approach--sometimes that of a messenger; advances, proposition, demeanour, invitation, incitement.",
     "waitereversed": "Trickery, artifice, subtlety, swindling, duplicity, fraud.",
-    "waitedesc": "Graceful, but not warlike; riding quietly, wearing a winged helmet, referring to those higher graces of the imagination which sometimes characterize this card. He too is a dreamer, but the images of the side of sense haunt him in his vision."
+    "longdesc": "Graceful, but not warlike; riding quietly, wearing a winged helmet, referring to those higher graces of the imagination which sometimes characterize this card. He too is a dreamer, but the images of the side of sense haunt him in his vision.",
+    "shortdesc": "He is graceful, but not warlike; riding quietly, wearing a winged helmet. He carries a chalice."
   },
   {
     "label": "Queen of Cups",
@@ -536,7 +584,8 @@ const cards = [
     "csnegative": "Stirs up trouble wherever she goes, defies rational analysis, can live her life through others and neglect her own reality.",
     "waiteregular": "Good, fair woman; honest, devoted woman, who will do service to the Querent; loving intelligence, and hence the gift of vision; success, happiness, pleasure; also wisdom, virtue; a perfect spouse and a good mother.",
     "waitereversed": "The accounts vary; good woman; otherwise, distinguished woman but one not to be trusted; perverse woman; vice, dishonour, depravity.",
-    "waitedesc": "A mature woman of fair complexion and golden hair who holds a lidded cup or chalice. Beautiful, fair, dreamy - as one who sees visions in a cup."
+    "longdesc": "A mature woman of fair complexion and golden hair who holds a lidded cup or chalice. Beautiful, fair, dreamy - as one who sees visions in a cup.",
+    "shortdesc": "A mature woman of fair complexion and golden hair who holds an ornate lidded cup or chalice. Cherubs adorn her throne."
   },
   {
     "label": "King of Cups",
@@ -547,7 +596,8 @@ const cards = [
     "csnegative": "He can manipulate people through their emotions.",
     "waiteregular": "Fair man, man of business, law, or divinity; responsible, disposed to oblige the Querent; also equity, art and science, including those who profess science, law and art; creative intelligence.",
     "waitereversed": "Dishonest, double-dealing man; roguery, exaction, injustice, vice, scandal, pillage, considerable loss.",
-    "waitedesc": "He holds a short sceptre in his left hand and a great cup in his right; his throne is set upon the sea; on one side a ship is riding and on the other a dolphin is leaping. The implicit is that the Sign of the Cup naturally refers to water, which appears in all the court cards."
+    "longdesc": "He holds a short sceptre in his left hand and a great cup in his right; his throne is set upon the sea; on one side a ship is riding and on the other a dolphin is leaping. The implicit is that the Sign of the Cup naturally refers to water, which appears in all the court cards.",
+    "shortdesc": "He holds a sceptre in his left hand and a great cup in his right; his throne is set upon the sea."
   },
   {
     "label": "Ace of Swords",
@@ -558,7 +608,8 @@ const cards = [
     "csnegative": "Deliberate lie, a verbal outburst that one regrets, violence.",
     "waiteregular": "Triumph, the excessive degree in everything, conquest, triumph of force. It is a card of great force, in love as well as in hatred. The crown may carry a much higher significance than comes usually within the sphere of fortune-telling.",
     "waitereversed": "The same, but the results are disastrous; another account says--conception, childbirth, augmentation, multiplicity.",
-    "waitedesc": "A hand issues from a cloud, grasping a sword, the point of which is encircled by a crown."
+    "longdesc": "A hand issues from a cloud, grasping a sword, the point of which is encircled by a crown.",
+    "shortdesc": "A hand issues from a cloud, grasping a sword, the point of which is encircled by a crown."
   },
   {
     "label": "Two of Swords",
@@ -569,7 +620,8 @@ const cards = [
     "csnegative": "Period of frustration and impasse in negotiations or discussions.",
     "waiteregular": "Conformity and the equipoise which it suggests, courage, friendship, concord in a state of arms; another reading gives tenderness, affection, intimacy. However, Swords are not beneficient.",
     "waitereversed": "Imposture, falsehood, duplicity, disloyalty.",
-    "waitedesc": "A blindfolded female figure balances two swords upon her shoulders."
+    "longdesc": "A blindfolded female figure balances two swords upon her shoulders.",
+    "shortdesc": "A blindfolded female figure balances two swords upon her shoulders."
   },
   {
     "label": "Three of Swords",
@@ -580,7 +632,8 @@ const cards = [
     "csnegative": "Know it all\", personality attacks blindness, secrecy, perversion.",
     "waiteregular": "Removal, absence, delay, division, rupture, dispersion.",
     "waitereversed": "Mental alienation, error, loss, distraction, disorder, confusion.",
-    "waitedesc": "Three swords piercing a heart; cloud and rain behind."
+    "longdesc": "Three swords piercing a heart; cloud and rain behind.",
+    "shortdesc": "Three swords piercing a heart; cloud and rain behind."
   },
   {
     "label": "Four of Swords",
@@ -591,7 +644,8 @@ const cards = [
     "csnegative": "Isolation, prison, loneliness, rigidity and conformity of mind, inflexible views and ideas, bigotry.",
     "waiteregular": "Vigilance, retreat, solitude, hermit's repose, exile, tomb and coffin.",
     "waitereversed": "Wise administration, circumspection, economy, avarice, precaution, testament.",
-    "waitedesc": "The effigy of a knight in the attitude of prayer, at full length upon his tomb."
+    "longdesc": "The effigy of a knight in the attitude of prayer, at full length upon his tomb.",
+    "shortdesc": "The effigy of a knight in the attitude of prayer, at full length upon his tomb."
   },
   {
     "label": "Five of Swords",
@@ -602,7 +656,8 @@ const cards = [
     "csnegative": "Mental panic, refusal to face the inevitable, fear, complaining, false pride, cowardice.",
     "waiteregular": "Degradation, destruction, revocation, infamy, dishonour, loss, with the variants and analogues of these.",
     "waitereversed": "The same; burial and obsequies.",
-    "waitedesc": "A disdainful man looks after two retreating and dejected figures. Their swords lie upon the ground. He carries two others on his left shoulder, and a third sword is in his right hand, pointing to earth. He is the master in possession of the field."
+    "longdesc": "A disdainful man looks after two retreating and dejected figures. Their swords lie upon the ground. He carries two others on his left shoulder, and a third sword is in his right hand, pointing to earth. He is the master in possession of the field.",
+    "shortdesc": "A man carrying three swords watches two retreating and dejected figures. Their swords lie upon the ground."
   },
   {
     "label": "Six of Swords",
@@ -613,7 +668,8 @@ const cards = [
     "csnegative": "Using smooth talk to deceive and manipulate.",
     "waiteregular": "Journey by water, route, way, envoy, commissionary, expedient.",
     "waitereversed": "Declaration, confession, publicity; one account says that it is a proposal of love.",
-    "waitedesc": "A ferryman carrying passengers in his punt to the further shore. The course is smooth, and seeing that the freight is light, it may be noted that the work is not beyond his strength."
+    "longdesc": "A ferryman carrying passengers in his punt to the further shore. The course is smooth, and seeing that the freight is light, it may be noted that the work is not beyond his strength.",
+    "shortdesc": "A ferryman carrying passengers in his punt to the further shore."
   },
   {
     "label": "Seven of Swords",
@@ -624,7 +680,8 @@ const cards = [
     "csnegative": "Opposing convention just to draw attention to oneself.",
     "waiteregular": "Design, attempt, wish, hope, confidence; also quarrelling, a plan that may fail, annoyance.",
     "waitereversed": "Good advice, counsel, instruction, slander, babbling.",
-    "waitedesc": "A man running carrying five swords; two other swords remain stuck in the ground. A camp is close at hand."
+    "longdesc": "A man running carrying five swords; two other swords remain stuck in the ground. A camp is close at hand.",
+    "shortdesc": "A man running carrying five swords; two other swords remain stuck in the ground. A camp is close at hand."
   },
   {
     "label": "Eight of Swords",
@@ -635,7 +692,8 @@ const cards = [
     "csnegative": "Anguish caused by too much reflection, incapable to act because of fear of the consequences, dullness, manic-depressive.",
     "waiteregular": "Bad news, violent chagrin, crisis, censure, power in trammels, conflict, calumny; also sickness.",
     "waitereversed": "Disquiet, difficulty, opposition, accident, treachery; what is unforeseen; fatality.",
-    "waitedesc": "A woman, bound and blindfolded, with the swords of the card about her."
+    "longdesc": "A woman, bound and blindfolded, with the swords of the card about her.",
+    "shortdesc": "A woman, bound and blindfolded, with the swords of the card about her."
   },
   {
     "label": "Nine of Swords",
@@ -646,7 +704,8 @@ const cards = [
     "csnegative": "Agony.",
     "waiteregular": "Death, failure, miscarriage, delay, deception, disappointment, despair.",
     "waitereversed": "Imprisonment, suspicion, doubt, reasonable fear, shame.",
-    "waitedesc": "A woman sitting up from sleep, her face in her hands. The swords are arranged horizontally over her, pointing to the right. She is as one who knows no sorrow which is like unto hers."
+    "longdesc": "A woman sitting up from sleep, her face in her hands. The swords are arranged horizontally over her, pointing to the right. She is as one who knows no sorrow which is like unto hers.",
+    "shortdesc": "A woman sits up from sleep, her face in her hands in despair. The swords are arranged horizontally above her."
   },
   {
     "label": "Ten of Swords",
@@ -657,7 +716,8 @@ const cards = [
     "csnegative": "Discomfort, Out of control.",
     "waiteregular": "Pain, affliction, tears, sadness, desolation. It is not especially a card of violent death.",
     "waitereversed": "Advantage, profit, success, favour, but none of these are permanent; also power and authority.",
-    "waitedesc": "A prostrate figure, pierced by all the swords belonging to the card, under a dark, gloomy sky."
+    "longdesc": "A prostrate figure, pierced by all the swords belonging to the card, under a dark, gloomy sky.",
+    "shortdesc": "A prostrate figure, pierced by all the swords belonging to the card, under a dark, gloomy sky."
   },
   {
     "label": "Page of Swords",
@@ -668,7 +728,8 @@ const cards = [
     "csnegative": "A fanatic or extremist, gossip can wound, spiteful and revengeful.",
     "waiteregular": "Authority, overseeing, secret service, vigilance, spying, examination, and the qualities thereto belonging.",
     "waitereversed": "More evil side of these qualities; what is unforeseen, unprepared state; sickness is also intimated.",
-    "waitedesc": "A lithe, active figure holds a sword upright in both hands, while in the act of swift walking. He is passing over rugged land, and about his way the clouds are collocated wildly. He is alert and lithe, looking this way and that, as if an expected enemy might appear at any moment."
+    "longdesc": "A lithe, active figure holds a sword upright in both hands, while in the act of swift walking. He is passing over rugged land, and about his way the clouds are collocated wildly. He is alert and lithe, looking this way and that, as if an expected enemy might appear at any moment.",
+    "shortdesc": "A lithe, active figure holds a sword upright in both hands, looking this way and that."
   },
   {
     "label": "Knight of Swords",
@@ -679,7 +740,8 @@ const cards = [
     "csnegative": "Merciless, self-destruction, victim of his own ideas or gossip, critical and tactless.",
     "waiteregular": "Skill, bravery, capacity, defence, address, enmity, wrath, war, destruction, opposition, resistance, ruin. Death, but only in proximity to other cards of fatality.",
     "waitereversed": "Imprudence, incapacity, extravagance.",
-    "waitedesc": "He is riding in full course, as if scattering his enemies, his sword lifted high. In the design he is really a prototypical hero of romantic chivalry. He might almost be Galahad, whose sword is swift and sure because he is clean of heart."
+    "longdesc": "He is riding in full course, as if scattering his enemies, his sword lifted high. In the design he is really a prototypical hero of romantic chivalry. He might almost be Galahad, whose sword is swift and sure because he is clean of heart.",
+    "shortdesc": "He is riding in full course, as if scattering his enemies, his sword lifted high."
   },
   {
     "label": "Queen of Swords",
@@ -690,7 +752,8 @@ const cards = [
     "csnegative": "Loneliness, perfection against humanity, controlled emotions.",
     "waiteregular": "Widowhood, female sadness and embarrassment, absence, sterility, mourning, privation, separation.",
     "waitereversed": "Malice, bigotry, artifice, prudery, bale, deceit.",
-    "waitedesc": "Her right hand raises the weapon vertically and the hilt rests on an arm of her royal chair. The left hand is extended, the arm raised. She wears a crown of butterflies. Her countenance is severe but chastened; it suggests familiarity with sorrow. Clouds gather low on her horizon."
+    "longdesc": "Her right hand raises the weapon vertically and the hilt rests on an arm of her royal chair. The left hand is extended, the arm raised. She wears a crown of butterflies. Her countenance is severe but chastened; it suggests familiarity with sorrow. Clouds gather low on her horizon.",
+    "shortdesc": "Her right hand raises the sword vertically and the hilt rests on an arm of her royal chair."
   },
   {
     "label": "King of Swords",
@@ -701,7 +764,8 @@ const cards = [
     "csnegative": "Manipulates others for his own gain, inner homelessness, a lack of being connected, untrustworthy.",
     "waiteregular": "Whatsoever arises out of the idea of judgment and all its connexions-power, command, authority, militant intelligence, law, offices of the crown, and so forth.",
     "waitereversed": "Cruelty, perversity, barbarity, perfidy, evil intention.",
-    "waitedesc": "He sits in judgment, holding the unsheathed sign of his suit. The back of his throne is carved with a butterfly design."
+    "longdesc": "He sits in judgment, holding the unsheathed sign of his suit. The back of his throne is carved with a butterfly design.",
+    "shortdesc": "He sits in judgment, holding the unsheathed sign of his suit. The back of his throne is carved with a butterfly design."
   },
   {
     "label": "Ace of Pentacles",
@@ -712,7 +776,8 @@ const cards = [
     "csnegative": "Sudden impulse to extravagance.",
     "waiteregular": "Perfect contentment, felicity, ecstasy; also speedy intelligence; gold. Prosperity, comfortable material conditions, of advantage to the possessor.",
     "waitereversed": "The evil side of wealth, bad intelligence; also great riches. Prosperity, comfortable material conditions, but not of advantage to the possessor.",
-    "waitedesc": "A hand issuing from a cloud holds up a pentacle. Below it is a lush garden full of flowers and an arch of greenery."
+    "longdesc": "A hand issuing from a cloud holds up a pentacle. Below it is a lush garden full of flowers and an arch of greenery.",
+    "shortdesc": "A hand issuing from a cloud holds up a pentacle. Below it is a lush garden full of flowers and an arch of greenery."
   },
   {
     "label": "Two of Pentacles",
@@ -723,7 +788,8 @@ const cards = [
     "csnegative": "Greed for material gain, weighing up one thing against another, naivet‚, premature reaction.",
     "waiteregular": "Gaiety, recreation and its connexions. Also news and messages in writing, as obstacles, agitation, trouble, embroilment.",
     "waitereversed": "Enforced gaiety, simulated enjoyment, literal sense, handwriting, composition, letters of exchange.",
-    "waitedesc": "A young man, in the act of dancing, has a pentacle in either hand, and they are joined by that endless cord which is like the number 8 reversed. In the background, a ship is tossed by the waves."
+    "longdesc": "A young man, in the act of dancing, has a pentacle in either hand, and they are joined by that endless cord which is like the number 8 reversed. In the background, a ship is tossed by the waves.",
+    "shortdesc": "A young man, in the act of dancing, has a pentacle in either hand. They are joined by a figure-8 cord."
   },
   {
     "label": "Three of Pentacles",
@@ -734,7 +800,8 @@ const cards = [
     "csnegative": "Overindulgence, conceit.",
     "waiteregular": "Métier, trade, skilled labour; usually, however, regarded as a card of nobility, aristocracy, renown, glory.",
     "waitereversed": "Mediocrity, in work and otherwise, puerility, pettiness, weakness.",
-    "waitedesc": "A sculptor at his work in a monastery. Two people look up at him, one showing him a sheet of paper with plans."
+    "longdesc": "A sculptor at his work in a monastery. Two people look up at him, one showing him a sheet of paper with plans.",
+    "shortdesc": "A sculptor at his work in a monastery. Two people look up at him, one showing him a sheet of paper with plans."
   },
   {
     "label": "Four of Pentacles",
@@ -745,7 +812,8 @@ const cards = [
     "csnegative": "Stagnation, greed, anger, fear of letting go, control of the body, block of self-expression.",
     "waiteregular": "The surety of possessions, cleaving to that which one has, gift, legacy, inheritance.",
     "waitereversed": "Suspense, delay, opposition.",
-    "waitedesc": "A crowned figure, having a pentacle over his crown, clasps another with hands and arms; two pentacles are under his feet. He holds to that which he has."
+    "longdesc": "A crowned figure, having a pentacle over his crown, clasps another with hands and arms; two pentacles are under his feet. He holds to that which he has.",
+    "shortdesc": "A crowned figure, having a pentacle over his crown, clasps another with hands and arms; two pentacles are under his feet."
   },
   {
     "label": "Five of Pentacles",
@@ -756,7 +824,8 @@ const cards = [
     "csnegative": "Worry, heavy, slow, obstinate.",
     "waiteregular": "Material trouble above all, whether in the form illustrated - that is, destitution - or otherwise. For some cartomancists, it is a card of love and lovers - wife, husband, friend, mistress; also concordance, affinities.",
     "waitereversed": "Disorder, chaos, ruin, discord, profligacy.",
-    "waitedesc": "Two mendicants in a snow-storm pass a lighted casement."
+    "longdesc": "Two mendicants in a snow-storm pass a lighted casement.",
+    "shortdesc": "Two mendicants in a snow-storm pass a lighted casement."
   },
   {
     "label": "Six of Pentacles",
@@ -767,7 +836,8 @@ const cards = [
     "csnegative": "Overindulgence, exaggerated.",
     "waiteregular": "Presents, gifts, gratification. Another account says attention, vigilance, now is the accepted time, present prosperity, etc.",
     "waitereversed": "Desire, cupidity, envy, jealousy, illusion.",
-    "waitedesc": "A person in the guise of a merchant weighs money in a pair of scales and distributes it to the needy and distressed."
+    "longdesc": "A person in the guise of a merchant weighs money in a pair of scales and distributes it to the needy and distressed.",
+    "shortdesc": "A person in the guise of a merchant weighs money in a pair of scales and distributes it to the needy and distressed."
   },
   {
     "label": "Seven of Pentacles",
@@ -778,7 +848,8 @@ const cards = [
     "csnegative": "Danger of stagnation, misfortune, lack of vitality, unorthodox behavior for effect.",
     "waiteregular": "Money, business, barter; but one reading gives altercation, quarrels--and another innocence, ingenuity, purgation.",
     "waitereversed": "Cause for anxiety regarding money which it may be proposed to lend.",
-    "waitedesc": "A young man, leaning on his staff, looks intently at seven pentacles attached to a clump of greenery on his right; one would say that these were his treasures and that his heart was there."
+    "longdesc": "A young man, leaning on his staff, looks intently at seven pentacles attached to a clump of greenery on his right; one would say that these were his treasures and that his heart was there.",
+    "shortdesc": "A young man, leaning on his staff, looks intently at seven pentacles attached to a clump of greenery on his right."
   },
   {
     "label": "Eight of Pentacles",
@@ -789,7 +860,8 @@ const cards = [
     "csnegative": "Isolation through being in a position of power, delusions.",
     "waiteregular": "Work, employment, commission, craftsmanship, skill in craft and business, perhaps in the preparatory stage.",
     "waitereversed": "Voided ambition, vanity, cupidity, exaction, usury. It may also signify the possession of skill, in the sense of the ingenious mind turned to cunning and intrigue.",
-    "waitedesc": "An artist in stone at his work, which he exhibits in the form of trophies."
+    "longdesc": "An artist in stone at his work, which he exhibits in the form of trophies.",
+    "shortdesc": "An artist in stone at his work, which he exhibits in the form of trophies."
   },
   {
     "label": "Nine of Pentacles",
@@ -800,7 +872,8 @@ const cards = [
     "csnegative": "Phlegmatic, manipulating, attracting \"hangers on\".",
     "waiteregular": "Prudence, safety, success, accomplishment, certitude, discernment.",
     "waitereversed": "Roguery, deception, voided project, bad faith.",
-    "waitedesc": "A woman, with a bird upon her wrist, stands amidst a great abundance of grapevines in the garden of a manorial house. It is a wide domain, suggesting plenty in all things. Possibly it is her own possession and testifies to material well-being."
+    "longdesc": "A woman, with a bird upon her wrist, stands amidst a great abundance of grapevines in the garden of a manorial house. It is a wide domain, suggesting plenty in all things. Possibly it is her own possession and testifies to material well-being.",
+    "shortdesc": "A woman, with a bird upon her wrist, stands amidst a great abundance of grapevines in the garden of a manorial house."
   },
   {
     "label": "Ten of Pentacles",
@@ -811,7 +884,8 @@ const cards = [
     "csnegative": "Hanging on to what is already lost, because of fear of the unknown.",
     "waiteregular": "Gain, riches; family matters, archives, extraction, the abode of a family.",
     "waitereversed": "Chance, fatality, loss, robbery, games of hazard; sometimes gift, dowry, pension.",
-    "waitedesc": "A man and woman beneath an archway which gives entrance to a house and domain. They are accompanied by a child, who looks curiously at two dogs accosting an ancient personage seated in the foreground. The child's hand is on one of them."
+    "longdesc": "A man and woman beneath an archway which gives entrance to a house and domain. They are accompanied by a child, who looks curiously at two dogs accosting an ancient personage seated in the foreground. The child's hand is on one of them.",
+    "shortdesc": "A man and woman stand beneath an archway. A child looks curiously at two dogs accosting an ancient personage."
   },
   {
     "label": "Page of Pentacles",
@@ -822,7 +896,8 @@ const cards = [
     "csnegative": "Ruthless heartless achiever.",
     "waiteregular": "Application, study, scholarship, reflection. Another reading says news, messages and the bringer thereof; also rule, management.",
     "waitereversed": "Prodigality, dissipation, liberality, luxury; unfavourable news.",
-    "waitedesc": "A youthful figure, looking intently at the pentacle which hovers over his raised hands. He moves slowly, insensible of that which is about him."
+    "longdesc": "A youthful figure, looking intently at the pentacle which hovers over his raised hands. He moves slowly, insensible of that which is about him.",
+    "shortdesc": "A youthful figure looks intently at the pentacle which hovers over his raised hands."
   },
   {
     "label": "Knight of Pentacles",
@@ -833,7 +908,8 @@ const cards = [
     "csnegative": "Interfering, over-organizing.",
     "waiteregular": "Utility, serviceableness, interest, responsibility, rectitude - all on the normal and external plane.",
     "waitereversed": "Inertia, idleness, repose of that kind, stagnation; also placidity, discouragement, carelessness",
-    "waitedesc": "He rides a slow, enduring, heavy horse, to which his own aspect corresponds. He exhibits his symbol, but does not look therein."
+    "longdesc": "He rides a slow, enduring, heavy horse, to which his own aspect corresponds. He exhibits his symbol, but does not look therein.",
+    "shortdesc": "He rides a slow, enduring, heavy horse, to which his own aspect corresponds. He exhibits his symbol, but does not look at it."
   },
   {
     "label": "Queen of Pentacles",
@@ -844,7 +920,8 @@ const cards = [
     "csnegative": "A slave to her own generosity.",
     "waiteregular": "Opulence, generosity, magnificence, security, liberty.",
     "waitereversed": "Evil, suspicion, suspense, fear, mistrust.",
-    "waitedesc": "The face suggests that of a dark woman, whose qualities might be summed up in the idea of greatness of soul; she has also the serious cast of intelligence; she contemplates her symbol and may see worlds therein."
+    "longdesc": "The face suggests that of a dark woman, whose qualities might be summed up in the idea of greatness of soul; she has also the serious cast of intelligence; she contemplates her symbol and may see worlds therein.",
+    "shortdesc": "A dark woman with the serious cast of intelligence; she contemplates her symbol and may see worlds therein."
   },
   {
     "label": "King of Pentacles",
@@ -855,6 +932,7 @@ const cards = [
     "csnegative": "Corruption, narrow bigoted chauvinist man, lazy, loneliness, above others.",
     "waiteregular": "Valour, realizing intelligence, business and normal intellectual aptitude, sometimes mathematical gifts and attainments of this kind; success in these paths.",
     "waitereversed": "Vice, weakness, ugliness, perversity, corruption, peril.",
-    "waitedesc": "The face is rather dark, suggesting also courage, but somewhat lethargic in tendency. The bull's head should be noted as a recurrent symbol on the throne. The sign of this suit is represented throughout as engraved or blazoned with the pentagram, typifying the correspondence of the four elements in human nature and that by which they may be governed."
+    "longdesc": "The face is rather dark, suggesting also courage, but somewhat lethargic in tendency. The bull's head should be noted as a recurrent symbol on the throne. The sign of this suit is represented throughout as engraved or blazoned with the pentagram, typifying the correspondence of the four elements in human nature and that by which they may be governed.",
+    "shortdesc": "A dark man with a face suggesting courage, but somewhat lethargic. His throne is decorated with a bull motif."
   }
 ]
