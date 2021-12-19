@@ -12,6 +12,19 @@
   width: 50%;
 }
 
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+#card-template {
+  display: none;
+}
+
 #open-explainer {
   position: fixed;
   bottom: 0;
@@ -142,7 +155,7 @@
   background-size: 20px 20px;
 }
 
-#camera {
+#deck-holder {
   width: 200px;
   height: 300px;
   position: fixed;
@@ -151,37 +164,16 @@
 }
 
 .deck {
-  text-align: center;
-  position: fixed;
-  color: white;
-  width: 195px;
-  height: 275px;
-  margin: 5px;
-  padding: 5px;
-  cursor: pointer;
-}
-.deck::before  {
-  background: url("https://cdn.glitch.me/6f22b01f-863d-42d0-b982-19a1a5d07120/deck.svg?v=1639873153389");
-  content: " ";
   width: 199px;
-  display: block;
-  position: fixed;
-  border-radius: 5px;
-  height: 282px;
+  height: 288px;
+  margin-top: 8px;
+  margin-left: 10px;
 }
-.deck::after {
-  border: 1px solid black;
-  border-radius: 5px;
-  content: "Click to draw";
-  font-size: 1.25em;
-  width: 188px;
-  padding-top: 2em;
-  display: block;
-  height: 268px;
-  position:absolute;
-  box-sizing: border-box;
-  background:linear-gradient(146deg, rgba(38, 230, 250, 1) 0%, rgba(140, 5, 227, 1) 70%, rgba(88, 11, 137, 1) 100%);
+
+#table-cards {
+
 }
+
 
 .card {
   position: absolute;
@@ -189,6 +181,7 @@
   left: 8px;
   width: 0;
   height: 0;
+  list-style: none;
 }
 
 .innerCard {
@@ -206,7 +199,7 @@
   border: 2px solid magenta;
 }
 
-.button {
+.innerCard button {
   display: none;
   background: aliceblue;
   position: relative;
@@ -217,9 +210,10 @@
   border: 1px solid darkblue;
   border-radius: 3px;
   cursor: pointer;
+  padding: 0;
 }
 
-.selected > .button {
+.selected button {
   display: block;
 }
 
