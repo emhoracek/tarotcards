@@ -151,10 +151,6 @@
 }
 
 .deck {
-  background: rebeccapurple;
-  border: 1px solid black;
-  border-right: 5px solid lightgray;
-  border-bottom: 5px solid lightgray;
   text-align: center;
   position: fixed;
   color: white;
@@ -163,7 +159,27 @@
   margin: 5px;
   padding: 5px;
   cursor: pointer;
+}
+.deck::before  {
+  background: url("https://cdn.glitch.me/6f22b01f-863d-42d0-b982-19a1a5d07120/deck.svg?v=1639873153389");
+  content: " ";
+  width: 199px;
+  display: block;
+  position: fixed;
   border-radius: 5px;
+  height: 282px;
+}
+.deck::after {
+  border: 1px solid black;
+  border-radius: 5px;
+  content: "Click to draw";
+  font-size: 1.25em;
+  width: 188px;
+  padding-top: 2em;
+  display: block;
+  height: 268px;
+  position:absolute;
+  box-sizing: border-box;
   background:linear-gradient(146deg, rgba(38, 230, 250, 1) 0%, rgba(140, 5, 227, 1) 70%, rgba(88, 11, 137, 1) 100%);
 }
 
