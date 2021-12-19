@@ -174,7 +174,6 @@
 
 }
 
-
 .card {
   position: absolute;
   top: 8px;
@@ -184,9 +183,8 @@
   list-style: none;
 }
 
-.innerCard {
+.inner-card {
   border: 1px solid black;
-  padding: 2px;
   width: 188px;
   height: 268px;
   background-color: #460a7f;
@@ -195,11 +193,13 @@
   border-radius: 5px;
 }
 
-.innerCard.selected {
+.selected {
   border: 2px solid magenta;
+  left: -35px;
+  top: -2px
 }
 
-.innerCard button {
+.inner-card button {
   display: none;
   background: aliceblue;
   position: relative;
@@ -216,6 +216,14 @@
 .selected button {
   display: block;
 }
+
+.inner-card img {
+  display: none;
+  position: absolute;
+  width: 184px;
+  margin: 1px;
+}
+
 
 /******************************************************************************
 START Glitch hello-app default styles

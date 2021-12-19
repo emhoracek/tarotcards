@@ -112,12 +112,14 @@ function mkTableCards () {
       "title": c.label,
       "orientation": orientation,
       "image": c.image,
+      "number": c.number,
       "visible": "back",
       "drawn": false,
       "cspositive": c.cspositive,
       "csnegative": c.csnegative,
       "waiteregular": c.waiteregular,
-      "waitereversed": c.waitereversed }
+      "waitereversed": c.waitereversed,
+      "shortdesc": c.shortdesc }
   })
 }
 
@@ -132,7 +134,7 @@ function moveToTop(cardId) {
 
   // clear selected from all children
   for (let i = 0; i < cards.length; i++) {
-    cards[i].children[2].className = "innerCard"
+    cards[i].children[0].className = "inner-card"
   }
 
   // remove card from table
@@ -145,7 +147,7 @@ function moveToTop(cardId) {
   }
 
   // select card and add it back to the table
-  card.children[2].className = "innerCard selected"
+  card.children[0].className = "inner-card selected"
   table.appendChild(card);
 
   // display interpretation of card
@@ -169,25 +171,33 @@ function createCard(card) {
   cardNode.id = deckCard["id"]
   cardNode.className = "card draggable"
 
-  let innerDiv = document.createElement("div")
-  innerDiv.className = "innerCard"
+  let innerDiv = cardNode.querySelector(".inner-card")
   innerDiv.style.transform = toRotate(deckCard.orientation)
-  cardNode.appendChild(innerDiv)
 
   innerDiv.appendChild(mkRotateLeft(cardId))
   innerDiv.appendChild(mkRotateRight(cardId))
   innerDiv.appendChild(mkFlip(cardId))
 
-  innerDiv.addEventListener("click", e => { e.preventDefault()
+  innerDiv.addEventListener("click", e => {
+    console.log("clicked!", e.target.parentElement.id)
+    e.preventDefault()
     let cardId = e.target.parentElement.id
     if (cardId == "table") {
       cardId = e.target.id
+    }
+    if (!cardId) {
+      cardId = e.target.parentElement.parentElement.id
     }
     if (!cardId) { return false }
     moveToTop(cardId)
     return false;
   })
 
+  let img = cardNode.querySelector("img")
+  img.src = deckCard.image;
+  img.alt = deckCard.shortdesc
+
+  img.addEventListener("click", e => false )
 
   tableCards[cardId].drawn = true
   tableCards[cardId].node = cardNode
@@ -206,23 +216,32 @@ function mkFlip(cardId) {
     const cardNode = e.target.parentElement
     if (tableCards[cardId].visible == "back") {
       tableCards[cardId].visible = "front"
-      cardNode.style["background-color"] = "white"
-      cardNode.style["background-image"] = "url('" + tableCards[cardId].image + "')"
-      cardNode.style["background-size"] = "185px"
+      cardNode.querySelector("img").style.display = "block";
       e.target.innerText= "↓"
 
       const selected = document.querySelector('input[name="interpretation"]:checked');
       displayExplanation(selected.value)
     } else {
       tableCards[cardId].visible = "back"
-      cardNode.style["background-color"] = ""
-      cardNode.style["background-image"] = ""
-      cardNode.style["background-size"] = ""
+      cardNode.querySelector("img").style.display = "none";
       e.target.innerText = "↑"
     }
+    setTitle(tableCards[cardId])
     return false;
   })
   return btn
+}
+
+function setTitle(card){
+  if (card.visible == "back") {
+    card.node.querySelector(".card-title").innerText = "A card"
+  } else {
+    const cardNumber = card.number
+    const cardTitle = card.title
+    const cardTitleWithNumber = cardNumber == "" ? cardTitle : cardTitle + " (" + cardNumber + ")"
+    card.node.querySelector(".card-title").innerText = card.title
+  }
+  card.node.querySelector(".card-position").innerText = toPosition(card.orientation)
 }
 
 function mkRotateLeft(cardId) {
@@ -236,11 +255,26 @@ function mkRotateLeft(cardId) {
 
     tableCards[cardId].orientation = rotateLeft(tableCards[cardId].orientation)
     tableCards[cardId].node.style.transform = toTransform(tableCards[cardId])
-    tableCards[cardId].node.children[2].style.transform = toRotate(tableCards[cardId].orientation)
+    tableCards[cardId].node.children[0].style.transform = toRotate(tableCards[cardId].orientation)
+    setTitle(tableCards[cardId])
 
     return false;
   })
   return btn
+}
+
+function toPosition (orientation) {
+  const actualOrientation = Math.abs(orientation % 360);
+  if (actualOrientation == 0) {
+    return ""
+  }
+  if (actualOrientation == 90) {
+    return "rotated right"
+  }
+  if (actualOrientation == 180) {
+    return "reversed"
+  }
+  return "rotated left"
 }
 
 function shadow (orientation) {
@@ -281,7 +315,8 @@ function mkRotateRight(cardId) {
     tableCards[cardId].orientation = orientation
 
     tableCards[cardId].node.style.transform = toTransform(tableCards[cardId], orientation.deg)
-    tableCards[cardId].node.children[2].style.transform = toRotate(orientation)
+    tableCards[cardId].node.children[0].style.transform = toRotate(orientation)
+    setTitle(tableCards[cardId])
 
     return false;
   })
@@ -336,7 +371,7 @@ interact('.draggable').draggable({
         }
       }
       event.target.className += " floating"
-      event.target.children[2].style["box-shadow"] = shadow(card.orientation)
+      event.target.children[0].style["box-shadow"] = shadow(card.orientation)
     },
     move (event) {
       const targetId = event.target.id
@@ -356,7 +391,7 @@ interact('.draggable').draggable({
       const classes = event.target.className
       const newClasses = classes.split(" ").filter(c => c !== "floating").join(" ")
       event.target.className = newClasses
-      event.target.children[2].style["box-shadow"] = "none"
+      event.target.children[0].style["box-shadow"] = "none"
     },
   }
 })
