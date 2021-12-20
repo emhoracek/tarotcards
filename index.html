@@ -45,22 +45,32 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
+    <header class="sr-only">
+      <h1>
+        An interactive tarot card deck.
+      </h1>
+    </header>
     <div class="wrapper">
       <main id="table">
+        <h2 class="sr-only">The table</h2>
         <div id="deck-holder">
           <img class="deck" src="https://cdn.glitch.me/6f22b01f-863d-42d0-b982-19a1a5d07120/deck.svg?v=1639873153389" alt="A deck of cards." />
           <ul id="deck-cards">
             <li id="card-template">
               <div class="inner-card">
-                <h2 class="sr-only"><span class="card-title">A card</span> <span class="card-position"></span></h2>
+                <h4 class="sr-only">A card</h2>
                 <img src="#" alt="Placeholder text." />
               </div>
             </li>
           </ul>
         </div>
-        <ul id="table-cards">
+        <div>
+          <h3 class="sr-only">Cards on the table</h3>
+          <p class="no-cards sr-only">There are no cards on the table.</p>
+          <ul id="table-cards">
 
-        </ul>
+          </ul>
+        </div>
       </main>
     </div>
     <div id="open-explainer">

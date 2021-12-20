@@ -128,6 +128,7 @@ function moveToTop(cardId) {
   var cards = document.getElementsByClassName("card");
   var card = document.getElementById(cardId);
 
+  if (card.children[0].className == "inner-card selected") { return false }
   if (cardId == "table") { return false }
 
   if (card.parentElement.id == "camera") { return false }
@@ -233,15 +234,16 @@ function mkFlip(cardId) {
 }
 
 function setTitle(card){
+  const position = toPosition(card.orientation)
+
   if (card.visible == "back") {
-    card.node.querySelector(".card-title").innerText = "A card"
+    card.node.querySelector("h4").innerText = "A card " + position
   } else {
     const cardNumber = card.number
     const cardTitle = card.title
-    const cardTitleWithNumber = cardNumber == "" ? cardTitle : cardTitle + " (" + cardNumber + ")"
-    card.node.querySelector(".card-title").innerText = card.title
+    const cardTitleWithNumber = cardNumber == "" ? cardTitle : cardNumber + ". " + cardTitle
+    card.node.querySelector("h4").innerText = card.title + " " + position
   }
-  card.node.querySelector(".card-position").innerText = toPosition(card.orientation)
 }
 
 function mkRotateLeft(cardId) {
@@ -359,6 +361,8 @@ interact('.draggable').draggable({
         const scrollX = window.scrollX
         card.y += scrollY
         card.x += scrollX
+
+        document.querySelector(".no-cards").style.display = "none";
 
         if (holder.children.length < 2) {
           if (currentCard <= cards.length) {
