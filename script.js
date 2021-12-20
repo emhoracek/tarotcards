@@ -38,10 +38,65 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const table = document.getElementById("table-cards")
 
   initializeDeck(table);
+
+  window.addEventListener("keydown", e => {
+    console.log("press", e.code)
+    const selected = document.activeElement
+    console.log(selected)
+    if (selected.className.includes("card")) {
+      if (e.code == "Space") {
+          const cardId = selected.id
+          selectCard(cardId)
+          e.preventDefault()
+      }
+      console.log(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code))
+      if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
+        selected.className += " floating"
+        if (e.code == "ArrowRight") {
+          moveCard(15,0)
+        }
+        if (e.code == "ArrowLeft") {
+          moveCard(-15,0)
+        }
+        if (e.code == "ArrowUp") {
+          moveCard(0,-15)
+        }
+        if (e.code == "ArrowDown") {
+          moveCard(0,15)
+        }
+        e.preventDefault()
+      }
+    }
+  })
+
+  window.addEventListener("keyup", e => {
+    console.log(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code))
+    if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
+      const selected = document.activeElement
+      const newClasses = selected.className.split(" ").filter(c => c !== "floating").join(" ")
+      selected.className = newClasses
+      e.preventDefault()
+    }
+  })
 });
 
+function moveCard(dx, dy) {
+  const selected = document.activeElement
+  const cardId = selected.id
+  console.log(selected, cardId)
+  const card = tableCards[cardId]
+  if (selected.parentElement.id == "deck-cards") {
+    moveFromDeckToTable(selected, card)
+  }
+  card.x += dx;
+  card.y += dy
+
+  card.node.focus()
+  card.node.style.transform = toTransform(card)
+}
+
 function displayExplanation(interpretation) {
-  const selectedCardNode = document.getElementsByClassName("selected")[0]
+  const selectedCardNode = document.querySelector(".card:focus-within")
   if (selectedCardNode) {
     const selectedCard = tableCards[selectedCardNode.parentElement.id]
 
@@ -125,32 +180,34 @@ function mkTableCards () {
 
 function moveToTop(cardId) {
   var table = document.getElementById("table-cards");
-  var cards = document.getElementsByClassName("card");
-  var card = document.getElementById(cardId);
+  var deck = document.getElementById("deck-cards");
+  var tableCard = table.querySelector("#" + cardId);
+  var deckCard = deck.querySelector("#" + cardId);
+  var card = tableCard || deckCard
+  var parent = tableCard ? table : deck
 
-  if (card.children[0].className == "inner-card selected") { return false }
-  if (cardId == "table") { return false }
-
-  if (card.parentElement.id == "camera") { return false }
-
-  // clear selected from all children
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].children[0].className = "inner-card"
+  // check if already on top
+  if (parent.children[parent.children.length - 1].id == card.id) {
+    return false
   }
+
+  if (cardId == "table") { return false }
+  if (card.parentElement.id == "deck-cards") { return false }
 
   // remove card from table
   for (let i = 0; i < cards.length; i++) {
     const thisCardId = cards[i].id
 
     if (thisCardId == cardId) {
-      table.removeChild(cards[i]);
+      parent.removeChild(cards[i]);
     }
   }
 
-  // select card and add it back to the table
-  card.children[0].className = "inner-card selected"
-  table.appendChild(card);
+  // add it back to the table
+  parent.appendChild(card);
+}
 
+function selectCard(cardId) {
   // display interpretation of card
   const selected = document.querySelector('input[name="interpretation"]:checked');
   displayExplanation(selected.value)
@@ -180,17 +237,16 @@ function createCard(card) {
   innerDiv.appendChild(mkFlip(cardId))
 
   innerDiv.addEventListener("click", e => {
-    console.log("clicked!", e.target.parentElement.id)
     e.preventDefault()
-    let cardId = e.target.parentElement.id
+
+    let cardId = e.target.parentElement.id || e.target.parentElement.parentElement.id
     if (cardId == "table") {
       cardId = e.target.id
     }
-    if (!cardId) {
-      cardId = e.target.parentElement.parentElement.id
-    }
     if (!cardId) { return false }
+    selectCard(cardId)
     moveToTop(cardId)
+    document.getElementById(cardId).focus()
     return false;
   })
 
@@ -204,7 +260,6 @@ function createCard(card) {
   tableCards[cardId].node = cardNode
   return cardNode
 }
-
 
 function mkFlip(cardId) {
   let btn = document.createElement("button")
@@ -253,13 +308,13 @@ function mkRotateLeft(cardId) {
   btn.appendChild(textnode)
 
   btn.addEventListener("click", e => {
-    e.preventDefault();
-
+    console.log("rotate", cardId, e.target)
     tableCards[cardId].orientation = rotateLeft(tableCards[cardId].orientation)
     tableCards[cardId].node.style.transform = toTransform(tableCards[cardId])
     tableCards[cardId].node.children[0].style.transform = toRotate(tableCards[cardId].orientation)
     setTitle(tableCards[cardId])
 
+    e.preventDefault();
     return false;
   })
   return btn
@@ -338,6 +393,7 @@ function initializeDeck(table) {
     console.log("no more cards")
   }
   const newCard2 = createCard(cards[currentCard])
+  newCard2.tabIndex = 2
   if (currentCard <= cards.length) {
     currentCard = currentCard + 1
   } else {
@@ -347,32 +403,39 @@ function initializeDeck(table) {
   holder.appendChild(newCard2)
 }
 
+function moveFromDeckToTable(cardNode, card) {
+  let holder = document.getElementById("deck-cards")
+  let table = document.getElementById("table-cards")
+  holder.removeChild(cardNode)
+  table.appendChild(cardNode)
+
+  const scrollY = window.scrollY
+  const scrollX = window.scrollX
+  card.y += scrollY
+  card.x += scrollX
+
+  document.querySelector(".no-cards").style.display = "none";
+
+  if (holder.children.length < 2) {
+    if (currentCard <= cards.length) {
+      const newCard = createCard(cards[currentCard])
+      currentCard = currentCard + 1
+      holder.appendChild(newCard)
+    } else {
+      console.log("no more cards")
+    }
+  }
+}
+
+
+
+
 interact('.draggable').draggable({
   listeners: {
     start (event) {
       const card = tableCards[event.target.id]
       if (event.target.parentElement.id == "deck-cards") {
-        let holder = document.getElementById("deck-cards")
-        let table = document.getElementById("table-cards")
-        holder.removeChild(event.target)
-        table.appendChild(event.target)
-
-        const scrollY = window.scrollY
-        const scrollX = window.scrollX
-        card.y += scrollY
-        card.x += scrollX
-
-        document.querySelector(".no-cards").style.display = "none";
-
-        if (holder.children.length < 2) {
-          if (currentCard <= cards.length) {
-            const newCard = createCard(cards[currentCard])
-            currentCard = currentCard + 1
-            holder.appendChild(newCard)
-          } else {
-            console.log("no more cards")
-          }
-        }
+        moveFromDeckToTable(event.target, card)
       }
       event.target.className += " floating"
       event.target.children[0].style["box-shadow"] = shadow(card.orientation)
@@ -384,10 +447,7 @@ interact('.draggable').draggable({
       const scrollY = window.scrollY
 
       card.x += event.dx
-      card.y += event.dy // add scroll distance to this!!
-
-      tableCards[targetId].x = card.x
-      tableCards[targetId].y = card.y
+      card.y += event.dy
 
       event.target.style.transform = toTransform(card)
     },
