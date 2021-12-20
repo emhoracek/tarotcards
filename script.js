@@ -273,13 +273,21 @@ function mkFlip(cardId) {
     if (tableCards[cardId].visible == "back") {
       tableCards[cardId].visible = "front"
       cardNode.querySelector("img").style.display = "block";
+      setTimeout(() => {
+        // not sure why we have to do this - otherwise transition doesn't work
+        cardNode.querySelector("img").style.opacity = "100%";
+      }, 1)
       e.target.innerText= "↓"
 
       const selected = document.querySelector('input[name="interpretation"]:checked');
       displayExplanation(selected.value)
     } else {
       tableCards[cardId].visible = "back"
-      cardNode.querySelector("img").style.display = "none";
+      cardNode.querySelector("img").style.opacity = "0%";
+      setTimeout(() => {
+        // wait for transition to end before removing img
+        cardNode.querySelector("img").style.display = "none";
+      }, 1000)
       e.target.innerText = "↑"
     }
     setTitle(tableCards[cardId])
