@@ -213,7 +213,7 @@
   position: absolute;
   width: 184px;
   margin: 1px;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 }
 
 

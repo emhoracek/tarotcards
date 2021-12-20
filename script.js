@@ -287,7 +287,7 @@ function mkFlip(cardId) {
       setTimeout(() => {
         // wait for transition to end before removing img
         cardNode.querySelector("img").style.display = "none";
-      }, 1000)
+      }, 500)
       e.target.innerText = "↑"
     }
     setTitle(tableCards[cardId])
