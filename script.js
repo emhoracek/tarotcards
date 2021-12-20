@@ -40,16 +40,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
   initializeDeck(table);
 
   window.addEventListener("keydown", e => {
-    console.log("press", e.code)
     const selected = document.activeElement
-    console.log(selected)
     if (selected.className.includes("card")) {
       if (e.code == "Space") {
           const cardId = selected.id
           selectCard(cardId)
           e.preventDefault()
       }
-      console.log(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code))
       if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
         selected.className += " floating"
         if (e.code == "ArrowRight") {
@@ -66,11 +63,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         e.preventDefault()
       }
+
+      if (!(['KeyF', 'KeyR', 'KeyL', 'KeyD'].indexOf(e.code) == -1)){
+        selected.className += " floating"
+        if (e.code == "KeyF") {
+          flipCard(selected, selected.id)
+        }
+        if (e.code == "KeyL") {
+          rotateCard(selected.id, "left")
+        }
+        if (e.code == "KeyR") {
+          rotateCard(selected.id, "right")
+        }
+      }
     }
   })
 
   window.addEventListener("keyup", e => {
-    console.log(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code))
     if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
       const selected = document.activeElement
       const newClasses = selected.className.split(" ").filter(c => c !== "floating").join(" ")
@@ -83,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function moveCard(dx, dy) {
   const selected = document.activeElement
   const cardId = selected.id
-  console.log(selected, cardId)
   const card = tableCards[cardId]
   if (selected.parentElement.id == "deck-cards") {
     moveFromDeckToTable(selected, card)
@@ -296,6 +304,30 @@ function mkFlip(cardId) {
   return btn
 }
 
+function flipCard(cardNode, cardId) {
+  if (tableCards[cardId].visible == "back") {
+    tableCards[cardId].visible = "front"
+    cardNode.querySelector("img").style.display = "block";
+    setTimeout(() => {
+      // not sure why we have to do this - otherwise transition doesn't work
+      cardNode.querySelector("img").style.opacity = "100%";
+    }, 1)
+    cardNode.querySelector('.flip').innerText= "↓"
+
+    const selected = document.querySelector('input[name="interpretation"]:checked');
+    displayExplanation(selected.value)
+  } else {
+    tableCards[cardId].visible = "back"
+    cardNode.querySelector("img").style.opacity = "0%";
+    setTimeout(() => {
+      // wait for transition to end before removing img
+      cardNode.querySelector("img").style.display = "none";
+    }, 500)
+    cardNode.querySelector('.flip').innerText = "↑"
+  }
+  setTitle(tableCards[cardId])
+}
+
 function setTitle(card){
   const position = toPosition(card.orientation)
 
@@ -316,16 +348,22 @@ function mkRotateLeft(cardId) {
   btn.appendChild(textnode)
 
   btn.addEventListener("click", e => {
-    console.log("rotate", cardId, e.target)
-    tableCards[cardId].orientation = rotateLeft(tableCards[cardId].orientation)
-    tableCards[cardId].node.style.transform = toTransform(tableCards[cardId])
-    tableCards[cardId].node.children[0].style.transform = toRotate(tableCards[cardId].orientation)
-    setTitle(tableCards[cardId])
-
+    rotateCard(cardId, "left")
     e.preventDefault();
     return false;
   })
   return btn
+}
+
+function rotateCard(cardId, direction) {
+  if (direction == "left") {
+    tableCards[cardId].orientation = rotateLeft(tableCards[cardId].orientation)
+  } else {
+    tableCards[cardId].orientation = rotateRight(tableCards[cardId].orientation)
+  }
+  tableCards[cardId].node.style.transform = toTransform(tableCards[cardId])
+  tableCards[cardId].node.children[0].style.transform = toRotate(tableCards[cardId].orientation)
+  setTitle(tableCards[cardId])
 }
 
 function toPosition (orientation) {
@@ -375,14 +413,8 @@ function mkRotateRight(cardId) {
   btn.appendChild(textnode)
 
   btn.addEventListener("click", e => {
+    rorateCard(cardId, "right")
     e.preventDefault();
-    const orientation = rotateRight(tableCards[cardId].orientation)
-    tableCards[cardId].orientation = orientation
-
-    tableCards[cardId].node.style.transform = toTransform(tableCards[cardId], orientation.deg)
-    tableCards[cardId].node.children[0].style.transform = toRotate(orientation)
-    setTitle(tableCards[cardId])
-
     return false;
   })
   return btn
