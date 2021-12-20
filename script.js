@@ -278,27 +278,7 @@ function mkFlip(cardId) {
   btn.addEventListener("click", e => {
     e.preventDefault();
     const cardNode = e.target.parentElement
-    if (tableCards[cardId].visible == "back") {
-      tableCards[cardId].visible = "front"
-      cardNode.querySelector("img").style.display = "block";
-      setTimeout(() => {
-        // not sure why we have to do this - otherwise transition doesn't work
-        cardNode.querySelector("img").style.opacity = "100%";
-      }, 1)
-      e.target.innerText= "↓"
-
-      const selected = document.querySelector('input[name="interpretation"]:checked');
-      displayExplanation(selected.value)
-    } else {
-      tableCards[cardId].visible = "back"
-      cardNode.querySelector("img").style.opacity = "0%";
-      setTimeout(() => {
-        // wait for transition to end before removing img
-        cardNode.querySelector("img").style.display = "none";
-      }, 500)
-      e.target.innerText = "↑"
-    }
-    setTitle(tableCards[cardId])
+    flipCard(cardNode, cardId)
     return false;
   })
   return btn
@@ -341,6 +321,7 @@ function setTitle(card){
   }
 }
 
+// * Rotation *//
 function mkRotateLeft(cardId) {
   let btn = document.createElement("button")
   btn.className = "button rotateLeft"
@@ -349,6 +330,20 @@ function mkRotateLeft(cardId) {
 
   btn.addEventListener("click", e => {
     rotateCard(cardId, "left")
+    e.preventDefault();
+    return false;
+  })
+  return btn
+}
+
+function mkRotateRight(cardId) {
+  let btn = document.createElement("button")
+  btn.className = "button rotateRight"
+  const textnode = document.createTextNode("→");
+  btn.appendChild(textnode)
+
+  btn.addEventListener("click", e => {
+    rotateCard(cardId, "right")
     e.preventDefault();
     return false;
   })
@@ -402,27 +397,14 @@ function toRotate (orientation) {
   return "rotate(" + orientation + "deg)"
 }
 
-function rotateLeft(orientation) {
-  return orientation - 90
-}
-
-function mkRotateRight(cardId) {
-  let btn = document.createElement("button")
-  btn.className = "button rotateRight"
-  const textnode = document.createTextNode("→");
-  btn.appendChild(textnode)
-
-  btn.addEventListener("click", e => {
-    rorateCard(cardId, "right")
-    e.preventDefault();
-    return false;
-  })
-  return btn
-}
-
 function rotateRight(orientation) {
   return orientation + 90
 }
+
+function rotateLeft(orientation) {
+  return orientation - 90
+}
+//* END Rotation *//
 
 function initializeDeck(table) {
   const holder = document.getElementById("deck-cards")
@@ -467,9 +449,7 @@ function moveFromDeckToTable(cardNode, card) {
   }
 }
 
-
-
-
+/* Interact drag-and-drop */
 interact('.draggable').draggable({
   listeners: {
     start (event) {
@@ -499,3 +479,4 @@ interact('.draggable').draggable({
     },
   }
 })
+/* END Interact drag-and-drop */
