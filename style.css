@@ -1,16 +1,4 @@
-#underConstruction {
-  display: none;
-  width: 100vw;
-  justify-self: start;
-}
-#underConstruction img {
-  margin: auto;
-  float: left;
-}
-#underConstruction .warning {
-  float: right;
-  width: 50%;
-}
+
 
 .sr-only {
   position:absolute;
