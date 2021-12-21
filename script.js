@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     openExplainer.style.display = "none"
   })
 
-
   const explainerOpt1 = document.getElementById("cs")
   const explainerOpt2 = document.getElementById("waite")
 
@@ -35,6 +34,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
       });
   }
 
+  document.addEventListener('focus', e => {
+    if (document.activeElement.classList.contains("card")) {
+      selectCard(document.activeElement.id)
+    }
+  }, true)
+
   const table = document.getElementById("table-cards")
 
   initializeDeck(table);
@@ -43,11 +48,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const selected = document.activeElement
     const isCard = selected.classList.contains("card")
     if (isCard) {
-      if (e.code == "Space") {
+      /*if (e.code == "Space") {
           const cardId = selected.id
           selectCard(cardId)
           e.preventDefault()
-      }
+      }*/
       if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
         selected.className += " floating"
         selected.style.transition = "transform 0.25s"
@@ -103,7 +108,6 @@ function moveCard(dx, dy, max) {
   const card = tableCards[cardId]
   if (selected.parentElement.id == "deck-cards") {
     moveFromDeckToTable(selected, card)
-    card.node.focus()
   }
 
   if (Math.abs(card.velocity) < ( max || 50)) { card.velocity += Math.abs(dx) * 5 }
@@ -115,10 +119,9 @@ function moveCard(dx, dy, max) {
   card.node.style.transform = toTransform(card)
 }
 
-function displayExplanation(interpretation) {
-  const selectedCardNode = document.querySelector(".card:focus-within")
-  if (selectedCardNode) {
-    const selectedCard = tableCards[selectedCardNode.parentElement.id]
+function displayExplanation(cardId, interpretation) {
+  if (cardId) {
+    const selectedCard = tableCards[cardId]
 
     if (selectedCard && selectedCard.visible == "front") {
       const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
@@ -218,12 +221,14 @@ function moveToTop(cardId) {
 
   // add it back to the table
   table.appendChild(card);
+  card.focus()
 }
 
 function selectCard(cardId) {
   // display interpretation of card
+  console.log("selecting!", cardId)
   const selected = document.querySelector('input[name="interpretation"]:checked');
-  displayExplanation(selected.value)
+  displayExplanation(cardId, selected.value)
 }
 
 function shuffleArray(array) {
@@ -257,9 +262,7 @@ function createCard(card) {
       cardId = e.target.id
     }
     if (!cardId) { return false }
-    selectCard(cardId)
     moveToTop(cardId)
-    document.getElementById(cardId).focus()
     return false;
   })
 
@@ -300,7 +303,7 @@ function flipCard(cardNode, cardId) {
     cardNode.querySelector('.flip').innerText= "↓"
 
     const selected = document.querySelector('input[name="interpretation"]:checked');
-    displayExplanation(selected.value)
+    displayExplanation(cardId, selected.value)
   } else {
     tableCards[cardId].visible = "back"
     cardNode.querySelector("img").style.opacity = "0%";
@@ -435,6 +438,7 @@ function moveFromDeckToTable(cardNode, card) {
   let table = document.getElementById("table-cards")
   holder.removeChild(cardNode)
   table.appendChild(cardNode)
+  cardNode.focus()
 
   const scrollY = window.scrollY
   const scrollX = window.scrollX
