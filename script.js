@@ -202,10 +202,6 @@ function mkTableCards () {
 }
 
 function moveToTop(cardId) {
-  if (cardId == "table") {
-    console.log("oops it's the table")
-    return false
-  }
   let card = document.getElementById(cardId);
   if (card.parentElement.id == "deck-cards") { return false }
   let table = document.getElementById("table-cards");
@@ -225,7 +221,6 @@ function moveToTop(cardId) {
 
 function selectCard(cardId) {
   // display interpretation of card
-  console.log("selecting!", cardId)
   const selected = document.querySelector('input[name="interpretation"]:checked');
   displayExplanation(cardId, selected.value)
 }
