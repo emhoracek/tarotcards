@@ -41,7 +41,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   window.addEventListener("keydown", e => {
     const selected = document.activeElement
-    if (selected.className.includes("card")) {
+    const isCard = selected.classList.contains("card")
+    if (isCard) {
       if (e.code == "Space") {
           const cardId = selected.id
           selectCard(cardId)
@@ -49,17 +50,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
       if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
         selected.className += " floating"
+        selected.style.transition = "transform 0.25s"
         if (e.code == "ArrowRight") {
-          moveCard(15,0)
+          moveCard(1,0)
         }
         if (e.code == "ArrowLeft") {
-          moveCard(-15,0)
+          moveCard(-1,0)
         }
         if (e.code == "ArrowUp") {
-          moveCard(0,-15)
+          moveCard(0,-1)
         }
         if (e.code == "ArrowDown") {
-          moveCard(0,15)
+          moveCard(0,1)
         }
         e.preventDefault()
       }
@@ -80,26 +82,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
   })
 
   window.addEventListener("keyup", e => {
-    if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
-      const selected = document.activeElement
-      const newClasses = selected.className.split(" ").filter(c => c !== "floating").join(" ")
-      selected.className = newClasses
-      e.preventDefault()
+    const selected = document.activeElement
+    if (selected.classList.contains("card")) {
+      if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
+        const newClasses = selected.className.split(" ").filter(c => c !== "floating").join(" ")
+        selected.className = newClasses
+        tableCards[selected.id].velocity = 0;
+        selected.addEventListener("transitionend", e => {
+          e.target.style.transition = "none";
+        })
+        e.preventDefault()
+      }
     }
   })
 });
 
-function moveCard(dx, dy) {
+function moveCard(dx, dy, max) {
   const selected = document.activeElement
   const cardId = selected.id
   const card = tableCards[cardId]
   if (selected.parentElement.id == "deck-cards") {
     moveFromDeckToTable(selected, card)
+    card.node.focus()
   }
-  card.x += dx;
-  card.y += dy
 
-  card.node.focus()
+  if (Math.abs(card.velocity) < ( max || 50)) { card.velocity += Math.abs(dx) * 5 }
+  if (Math.abs(card.velocity) < ( max || 50)) { card.velocity += Math.abs(dy) * 5 }
+
+  card.x += card.velocity * dx;
+  card.y += card.velocity * dy;
+
   card.node.style.transform = toTransform(card)
 }
 
@@ -172,6 +184,7 @@ function mkTableCards () {
     tableCards[cardId] = {
       "id": cardId,
       "x": 0, "y": 0,
+      "velocity": 0,
       "title": c.label,
       "orientation": orientation,
       "image": c.image,
