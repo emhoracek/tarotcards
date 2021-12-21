@@ -156,10 +156,6 @@
   margin-left: 10px;
 }
 
-#table-cards {
-
-}
-
 .card {
   position: absolute;
   top: 8px;
@@ -167,7 +163,6 @@
   width: 0;
   height: 0;
   list-style: none;
-  transition: transform 0.25s;
 }
 .card:focus {
   outline: none;
