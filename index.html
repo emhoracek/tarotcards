@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--
-      This is the page head - it contains info the browser uses to display the page
-      You won't see what's in the head in the page
-      Scroll down to the body element for the page content
-    -->
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.75, minimum-scale=0.75"/>
     <link rel="icon" href="https://glitch.com/favicon.ico" />
 
-    <!--
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
-
     <title>tarot cards</title>
 
-    <!-- Meta tags for SEO and social sharing -->
     <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
     <meta
       name="description"
@@ -30,7 +18,7 @@
     <meta property="og:url" content="https://tarotcards.glitch.me/" />
     <meta
       property="og:description"
-      content="..obtain hidden wisdom from the cyber oracles..."
+      content="...obtain hidden wisdom from the cyber oracles..."
     />
     <meta
       property="og:image"
@@ -45,23 +33,34 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
+    <header class="sr-only">
+      <h1>
+        An interactive tarot card deck.
+      </h1>
+    </header>
     <div class="wrapper">
-      <div id="underConstruction">
-        <p class="warning">
-          Warning: I'm currently working on this page and the work auto-deploys
-          to so you'll see a lot of bugs. When I'm done, I'll remove this
-          header.
-        </p>
-        <img
-          src="https://64.media.tumblr.com/f0da7c50d726e64c6c0d8a985240b6f4/dfbbb68a95adf2d4-ce/s1280x1920/12d1e09ee5340b82fe8204c83ee6107595bc9202.gifv"
-        />
-      </div>
-      <div id="table">
-        <div id="camera">
-          <div class="deck">
-          </div>
+      <main id="table">
+        <h2 class="sr-only">The table</h2>
+        <div id="deck-holder">
+          <h3 class="sr-only">Cards in the deck</h3>
+          <img class="deck" src="https://cdn.glitch.me/6f22b01f-863d-42d0-b982-19a1a5d07120/deck.svg?v=1639873153389" alt="" />
+          <ul id="deck-cards">
+            <li id="card-template" tabindex="0">
+              <div class="inner-card">
+                <h4 class="sr-only">A card</h2>
+                <img src="#" alt="Placeholder text." />
+              </div>
+            </li>
+          </ul>
         </div>
-      </div>
+        <div class="card-area">
+          <h3 class="sr-only">Cards on the table</h3>
+          <p class="no-cards sr-only">There are no cards on the table.</p>
+          <ul id="table-cards">
+
+          </ul>
+        </div>
+      </main>
     </div>
     <div id="open-explainer">
       <button>divinatory text</button>
@@ -85,7 +84,7 @@
           </p>
         </div>
         <div class="explanation-negative">
-          <header><h1>Negative</h1></header>
+          <h1>Negative</h1>
           <p>
             Negative interpretation of the card.
           </p>
@@ -105,12 +104,14 @@
     </div>
     <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
     <footer class="footer">
-      <p>
-        All cards are from the 1996 <a href="http://www.m31.de/colman-smith/index.html">Coleman-Smith</a> deck.
-      </p>
-      <p>
-        The Divinatory Texts are from Coleman-Smith (1996) and The Pictorial Key to the Tarot by A.E. Waite (1910).
-      </p>
+      <div class="credits">
+        <p>
+          All cards are from the 1996 <a href="http://www.m31.de/colman-smith/index.html">Coleman-Smith</a> deck.
+        </p>
+        <p>
+          The Divinatory Texts are from Coleman-Smith (1996) and The Pictorial Key to the Tarot by A.E. Waite (1910).
+        </p>
+      </div>
       <div class="links"></div>
       <a
         class="btn--remix"

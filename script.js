@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     openExplainer.style.display = "none"
   })
 
-
   const explainerOpt1 = document.getElementById("cs")
   const explainerOpt2 = document.getElementById("waite")
 
@@ -35,15 +34,93 @@ document.addEventListener("DOMContentLoaded", function(event) {
       });
   }
 
-  const table = document.getElementById("table")
+  document.addEventListener('focus', e => {
+    if (document.activeElement.classList.contains("card")) {
+      selectCard(document.activeElement.id)
+    }
+  }, true)
+
+  const table = document.getElementById("table-cards")
 
   initializeDeck(table);
+
+  window.addEventListener("keydown", e => {
+    const selected = document.activeElement
+    const isCard = selected.classList.contains("card")
+    if (isCard) {
+      /*if (e.code == "Space") {
+          const cardId = selected.id
+          selectCard(cardId)
+          e.preventDefault()
+      }*/
+      if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
+        if (!selected.classList.contains('floating')) { selected.classList.add('floating')}
+        selected.style.transition = "transform 0.25s"
+        if (e.code == "ArrowRight") {
+          moveCard(1,0)
+        }
+        if (e.code == "ArrowLeft") {
+          moveCard(-1,0)
+        }
+        if (e.code == "ArrowUp") {
+          moveCard(0,-1)
+        }
+        if (e.code == "ArrowDown") {
+          moveCard(0,1)
+        }
+        e.preventDefault()
+      }
+
+      if (!(['KeyF', 'KeyR', 'KeyL', 'KeyD'].indexOf(e.code) == -1)){
+        selected.className += " floating"
+        if (e.code == "KeyF") {
+          flipCard(selected, selected.id)
+        }
+        if (e.code == "KeyL") {
+          rotateCard(selected.id, "left")
+        }
+        if (e.code == "KeyR") {
+          rotateCard(selected.id, "right")
+        }
+      }
+    }
+  })
+
+  window.addEventListener("keyup", e => {
+    const selected = document.activeElement
+    if (selected.classList.contains("card")) {
+      if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
+        selected.classList.remove("floating")
+        tableCards[selected.id].velocity = 0;
+        selected.addEventListener("transitionend", e => {
+          e.target.style.transition = "none";
+        })
+        e.preventDefault()
+      }
+    }
+  })
 });
 
-function displayExplanation(interpretation) {
-  const selectedCardNode = document.getElementsByClassName("selected")[0]
-  if (selectedCardNode) {
-    const selectedCard = tableCards[selectedCardNode.parentElement.id]
+function moveCard(dx, dy, max) {
+  const selected = document.activeElement
+  const cardId = selected.id
+  const card = tableCards[cardId]
+  if (selected.parentElement.id == "deck-cards") {
+    moveFromDeckToTable(selected, card)
+  }
+
+  if (Math.abs(card.velocity) < ( max || 50)) { card.velocity += Math.abs(dx) * 5 }
+  if (Math.abs(card.velocity) < ( max || 50)) { card.velocity += Math.abs(dy) * 5 }
+
+  card.x += card.velocity * dx;
+  card.y += card.velocity * dy;
+
+  card.node.style.transform = toTransform(card)
+}
+
+function displayExplanation(cardId, interpretation) {
+  if (cardId) {
+    const selectedCard = tableCards[cardId]
 
     if (selectedCard && selectedCard.visible == "front") {
       const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
@@ -109,48 +186,43 @@ function mkTableCards () {
     tableCards[cardId] = {
       "id": cardId,
       "x": 0, "y": 0,
+      "velocity": 0,
       "title": c.label,
       "orientation": orientation,
       "image": c.image,
+      "number": c.number,
       "visible": "back",
       "drawn": false,
       "cspositive": c.cspositive,
       "csnegative": c.csnegative,
       "waiteregular": c.waiteregular,
-      "waitereversed": c.waitereversed }
+      "waitereversed": c.waitereversed,
+      "shortdesc": c.shortdesc }
   })
 }
 
 function moveToTop(cardId) {
-  var table = document.getElementById("table");
-  var cards = document.getElementsByClassName("card");
-  var card = document.getElementById(cardId);
+  let card = document.getElementById(cardId);
+  if (card.parentElement.id == "deck-cards") { return false }
+  let table = document.getElementById("table-cards");
 
-  if (cardId == "table") { return false }
-
-  if (card.parentElement.id == "camera") { return false }
-
-  // clear selected from all children
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].children[0].className = "innerCard"
+  // check if already on top
+  if (table.children[table.children.length - 1].id == cardId) {
+    return false
   }
 
   // remove card from table
-  for (let i = 0; i < cards.length; i++) {
-    const thisCardId = cards[i].id
+  card.remove()
 
-    if (thisCardId == cardId) {
-      table.removeChild(cards[i]);
-    }
-  }
-
-  // select card and add it back to the table
-  card.children[0].className = "innerCard selected"
+  // add it back to the table
   table.appendChild(card);
+  card.focus()
+}
 
+function selectCard(cardId) {
   // display interpretation of card
   const selected = document.querySelector('input[name="interpretation"]:checked');
-  displayExplanation(selected.value)
+  displayExplanation(cardId, selected.value)
 }
 
 function shuffleArray(array) {
@@ -161,23 +233,25 @@ function shuffleArray(array) {
 }
 
 function createCard(card) {
-  let cardNode = document.createElement("div")
+  let cardNode = document.getElementById("card-template").cloneNode(true)
+
   const cardId = card["label"].toLowerCase().replace(/[^a-z]/g, "")
   let deckCard = tableCards[cardId]
+
   cardNode.id = deckCard["id"]
   cardNode.className = "card draggable"
 
-  let innerDiv = document.createElement("div")
-  innerDiv.className = "innerCard"
+  let innerDiv = cardNode.querySelector(".inner-card")
   innerDiv.style.transform = toRotate(deckCard.orientation)
-  cardNode.appendChild(innerDiv)
 
   innerDiv.appendChild(mkRotateLeft(cardId))
   innerDiv.appendChild(mkRotateRight(cardId))
   innerDiv.appendChild(mkFlip(cardId))
 
-  innerDiv.addEventListener("click", e => { e.preventDefault()
-    let cardId = e.target.parentElement.id
+  innerDiv.addEventListener("click", e => {
+    e.preventDefault()
+
+    let cardId = e.target.parentElement.id || e.target.parentElement.parentElement.id
     if (cardId == "table") {
       cardId = e.target.id
     }
@@ -186,59 +260,121 @@ function createCard(card) {
     return false;
   })
 
+  let img = cardNode.querySelector("img")
+  img.src = deckCard.image;
+  img.alt = deckCard.shortdesc
+
+  img.addEventListener("click", e => false )
 
   tableCards[cardId].drawn = true
   tableCards[cardId].node = cardNode
   return cardNode
 }
 
-
 function mkFlip(cardId) {
-  let div = document.createElement("div")
-  div.className = "button flip"
+  let btn = document.createElement("button")
+  btn.className = "button flip"
   const textnode = document.createTextNode("↑");
-  div.appendChild(textnode)
+  btn.appendChild(textnode)
 
-  div.addEventListener("click", e => {
+  btn.addEventListener("click", e => {
     e.preventDefault();
     const cardNode = e.target.parentElement
-    if (tableCards[cardId].visible == "back") {
-      tableCards[cardId].visible = "front"
-      cardNode.style["background-color"] = "white"
-      cardNode.style["background-image"] = "url('" + tableCards[cardId].image + "')"
-      cardNode.style["background-size"] = "185px"
-      e.target.innerText= "↓"
-
-      const selected = document.querySelector('input[name="interpretation"]:checked');
-      displayExplanation(selected.value)
-    } else {
-      tableCards[cardId].visible = "back"
-      cardNode.style["background-color"] = ""
-      cardNode.style["background-image"] = ""
-      cardNode.style["background-size"] = ""
-      e.target.innerText = "↑"
-    }
+    flipCard(cardNode, cardId)
     return false;
   })
-  return div
+  return btn
 }
 
+function flipCard(cardNode, cardId) {
+  if (tableCards[cardId].visible == "back") {
+    tableCards[cardId].visible = "front"
+    cardNode.querySelector("img").style.display = "block";
+    setTimeout(() => {
+      // not sure why we have to do this - otherwise transition doesn't work
+      cardNode.querySelector("img").style.opacity = "100%";
+    }, 1)
+    cardNode.querySelector('.flip').innerText= "↓"
+
+    const selected = document.querySelector('input[name="interpretation"]:checked');
+    displayExplanation(cardId, selected.value)
+  } else {
+    tableCards[cardId].visible = "back"
+    cardNode.querySelector("img").style.opacity = "0%";
+    setTimeout(() => {
+      // wait for transition to end before removing img
+      cardNode.querySelector("img").style.display = "none";
+    }, 500)
+    cardNode.querySelector('.flip').innerText = "↑"
+  }
+  setTitle(tableCards[cardId])
+}
+
+function setTitle(card){
+  const position = toPosition(card.orientation)
+
+  if (card.visible == "back") {
+    card.node.querySelector("h4").innerText = "A card " + position
+  } else {
+    const cardNumber = card.number
+    const cardTitle = card.title
+    const cardTitleWithNumber = cardNumber == "" ? cardTitle : cardNumber + ". " + cardTitle
+    card.node.querySelector("h4").innerText = card.title + " " + position
+  }
+}
+
+// * Rotation *//
 function mkRotateLeft(cardId) {
-  let div = document.createElement("div")
-  div.className = "button rotateLeft"
+  let btn = document.createElement("button")
+  btn.className = "button rotateLeft"
   const textnode = document.createTextNode("←");
-  div.appendChild(textnode)
+  btn.appendChild(textnode)
 
-  div.addEventListener("click", e => {
+  btn.addEventListener("click", e => {
+    rotateCard(cardId, "left")
     e.preventDefault();
-
-    tableCards[cardId].orientation = rotateLeft(tableCards[cardId].orientation)
-    tableCards[cardId].node.style.transform = toTransform(tableCards[cardId])
-    tableCards[cardId].node.children[0].style.transform = toRotate(tableCards[cardId].orientation)
-
     return false;
   })
-  return div
+  return btn
+}
+
+function mkRotateRight(cardId) {
+  let btn = document.createElement("button")
+  btn.className = "button rotateRight"
+  const textnode = document.createTextNode("→");
+  btn.appendChild(textnode)
+
+  btn.addEventListener("click", e => {
+    rotateCard(cardId, "right")
+    e.preventDefault();
+    return false;
+  })
+  return btn
+}
+
+function rotateCard(cardId, direction) {
+  if (direction == "left") {
+    tableCards[cardId].orientation = rotateLeft(tableCards[cardId].orientation)
+  } else {
+    tableCards[cardId].orientation = rotateRight(tableCards[cardId].orientation)
+  }
+  tableCards[cardId].node.style.transform = toTransform(tableCards[cardId])
+  tableCards[cardId].node.children[0].style.transform = toRotate(tableCards[cardId].orientation)
+  setTitle(tableCards[cardId])
+}
+
+function toPosition (orientation) {
+  const actualOrientation = Math.abs(orientation % 360);
+  if (actualOrientation == 0) {
+    return ""
+  }
+  if (actualOrientation == 90) {
+    return "rotated right"
+  }
+  if (actualOrientation == 180) {
+    return "reversed"
+  }
+  return "rotated left"
 }
 
 function shadow (orientation) {
@@ -259,83 +395,70 @@ function toTransform (card) {
   return `translate(${card.x}px, ${card.y}px)`
 }
 
-
 function toRotate (orientation) {
   return "rotate(" + orientation + "deg)"
-}
-
-function rotateLeft(orientation) {
-  return orientation - 90
-}
-
-function mkRotateRight(cardId) {
-  let div = document.createElement("div")
-  div.className = "button rotateRight"
-  const textnode = document.createTextNode("→");
-  div.appendChild(textnode)
-
-  div.addEventListener("click", e => {
-    e.preventDefault();
-    const orientation = rotateRight(tableCards[cardId].orientation)
-    tableCards[cardId].orientation = orientation
-
-    tableCards[cardId].node.style.transform = toTransform(tableCards[cardId], orientation.deg)
-    tableCards[cardId].node.children[0].style.transform = toRotate(orientation)
-
-    return false;
-  })
-  return div
 }
 
 function rotateRight(orientation) {
   return orientation + 90
 }
 
+function rotateLeft(orientation) {
+  return orientation - 90
+}
+//* END Rotation *//
+
 function initializeDeck(table) {
-  const deck = document.getElementsByClassName("deck")[0]
-  const camera = document.getElementById("camera")
-  deck.addEventListener("click", e => {
-    const newCard = createCard(cards[currentCard])
-    if (currentCard <= cards.length) {
-      currentCard = currentCard + 1
-    } else {
-      console.log("no more cards")
-    }
-    const newCard2 = createCard(cards[currentCard])
-    if (currentCard <= cards.length) {
-      currentCard = currentCard + 1
-    } else {
-      console.log("no more cards")
-    }
-    camera.appendChild(newCard)
-    camera.appendChild(newCard2)
-  });
+  const holder = document.getElementById("deck-cards")
+  const newCard = createCard(cards[currentCard])
+  if (currentCard <= cards.length) {
+    currentCard = currentCard + 1
+  } else {
+    console.log("no more cards")
+  }
+  const newCard2 = createCard(cards[currentCard])
+  newCard2.tabIndex = 2
+  if (currentCard <= cards.length) {
+    currentCard = currentCard + 1
+  } else {
+    console.log("no more cards")
+  }
+  holder.appendChild(newCard)
+  holder.appendChild(newCard2)
 }
 
+function moveFromDeckToTable(cardNode, card) {
+  let holder = document.getElementById("deck-cards")
+  let table = document.getElementById("table-cards")
+  holder.removeChild(cardNode)
+  table.appendChild(cardNode)
+  cardNode.focus()
+
+  const scrollY = window.scrollY
+  const scrollX = window.scrollX
+  card.y += scrollY
+  card.x += scrollX
+
+  document.querySelector(".no-cards").style.display = "none";
+
+  if (holder.children.length < 2) {
+    if (currentCard <= cards.length) {
+      const newCard = createCard(cards[currentCard])
+      currentCard = currentCard + 1
+      holder.appendChild(newCard)
+    } else {
+      console.log("no more cards")
+    }
+  }
+}
+
+/* Interact drag-and-drop */
 interact('.draggable').draggable({
   listeners: {
     start (event) {
       const card = tableCards[event.target.id]
-      if (event.target.parentElement.id == "camera") {
-        let camera = document.getElementById("camera")
-        let table = document.getElementById("table")
-        camera.removeChild(event.target)
-        table.appendChild(event.target)
-
-        const scrollY = window.scrollY
-        const scrollX = window.scrollX
-        card.y += scrollY
-        card.x += scrollX
-
-        if (camera.children.length < 2) {
-          if (currentCard <= cards.length) {
-            const newCard = createCard(cards[currentCard])
-            currentCard = currentCard + 1
-            camera.appendChild(newCard)
-          } else {
-            console.log("no more cards")
-          }
-        }
+      if (event.target.parentElement.id == "deck-cards") {
+        moveFromDeckToTable(event.target, card)
       }
       event.target.className += " floating"
       event.target.children[0].style["box-shadow"] = shadow(card.orientation)
@@ -347,10 +470,7 @@ interact('.draggable').draggable({
       const scrollY = window.scrollY
 
       card.x += event.dx
-      card.y += event.dy // add scroll distance to this!!
-
-      tableCards[targetId].x = card.x
-      tableCards[targetId].y = card.y
+      card.y += event.dy
 
       event.target.style.transform = toTransform(card)
     },
@@ -362,3 +482,4 @@ interact('.draggable').draggable({
     },
   }
 })
+/* END Interact drag-and-drop */
