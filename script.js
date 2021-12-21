@@ -200,32 +200,24 @@ function mkTableCards () {
 }
 
 function moveToTop(cardId) {
-  var table = document.getElementById("table-cards");
-  var deck = document.getElementById("deck-cards");
-  var tableCard = table.querySelector("#" + cardId);
-  var deckCard = deck.querySelector("#" + cardId);
-  var card = tableCard || deckCard
-  var parent = tableCard ? table : deck
+  if (cardId == "table") {
+    console.log("oops it's the table")
+    return false
+  }
+  let card = document.getElementById(cardId);
+  if (card.parentElement.id == "deck-cards") { return false }
+  let table = document.getElementById("table-cards");
 
   // check if already on top
-  if (parent.children[parent.children.length - 1].id == card.id) {
+  if (table.children[table.children.length - 1].id == cardId) {
     return false
   }
 
-  if (cardId == "table") { return false }
-  if (card.parentElement.id == "deck-cards") { return false }
-
   // remove card from table
-  for (let i = 0; i < cards.length; i++) {
-    const thisCardId = cards[i].id
-
-    if (thisCardId == cardId) {
-      parent.removeChild(cards[i]);
-    }
-  }
+  card.remove()
 
   // add it back to the table
-  parent.appendChild(card);
+  table.appendChild(card);
 }
 
 function selectCard(cardId) {
