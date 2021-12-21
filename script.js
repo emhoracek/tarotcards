@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           e.preventDefault()
       }*/
       if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
-        selected.className += " floating"
+        if (!selected.classList.contains('floating')) { selected.classList.add('floating')}
         selected.style.transition = "transform 0.25s"
         if (e.code == "ArrowRight") {
           moveCard(1,0)
@@ -90,8 +90,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const selected = document.activeElement
     if (selected.classList.contains("card")) {
       if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
-        const newClasses = selected.className.split(" ").filter(c => c !== "floating").join(" ")
-        selected.className = newClasses
+        selected.classList.remove("floating")
         tableCards[selected.id].velocity = 0;
         selected.addEventListener("transitionend", e => {
           e.target.style.transition = "none";
