@@ -48,6 +48,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const selected = document.activeElement
     const isCard = selected.classList.contains("card")
     if (isCard) {
+      if (e.code == "Space") {
+        moveToTop(selected.id)
+        e.preventDefault()
+      }
       if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
         if (!selected.classList.contains('floating')) { selected.classList.add('floating') }
         selected.style.transition = "transform 0.25s"
@@ -99,7 +103,7 @@ function moveCard(dx, dy, max) {
   const selected = document.activeElement
   const cardId = selected.id
   const card = tableCards[cardId]
-  if (selected.parentElement.id == "deck-cards") {
+  if (selected.classList.contains("deck-card")) {
     moveFromDeckToTable(selected, card)
   }
 
