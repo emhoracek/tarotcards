@@ -48,13 +48,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const selected = document.activeElement
     const isCard = selected.classList.contains("card")
     if (isCard) {
-      /*if (e.code == "Space") {
-          const cardId = selected.id
-          selectCard(cardId)
-          e.preventDefault()
-      }*/
       if (!(['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].indexOf(e.code) == -1)){
-        if (!selected.classList.contains('floating')) { selected.classList.add('floating')}
+        if (!selected.classList.contains('floating')) { selected.classList.add('floating') }
         selected.style.transition = "transform 0.25s"
         if (e.code == "ArrowRight") {
           moveCard(1,0)
@@ -71,8 +66,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         e.preventDefault()
       }
 
-      if (!(['KeyF', 'KeyR', 'KeyL', 'KeyD'].indexOf(e.code) == -1)){
-        selected.className += " floating"
+      if (!(['KeyF', 'KeyR', 'KeyL'].indexOf(e.code) == -1)){
         if (e.code == "KeyF") {
           flipCard(selected, selected.id)
         }
@@ -203,12 +197,13 @@ function mkTableCards () {
 
 function moveToTop(cardId) {
   let card = document.getElementById(cardId);
-  if (card.parentElement.id == "deck-cards") { return false }
   let table = document.getElementById("table-cards");
 
   // check if already on top
-  if (table.children[table.children.length - 1].id == cardId) {
-    return false
+  if (table.children.length > 0) {
+    if (table.children[table.children.length - 1].id == cardId) {
+      return false
+    }
   }
 
   // remove card from table
@@ -239,7 +234,7 @@ function createCard(card) {
   let deckCard = tableCards[cardId]
 
   cardNode.id = deckCard["id"]
-  cardNode.className = "card draggable"
+  cardNode.className = "card draggable deck-card"
 
   let innerDiv = cardNode.querySelector(".inner-card")
   innerDiv.style.transform = toRotate(deckCard.orientation)
@@ -251,10 +246,8 @@ function createCard(card) {
   innerDiv.addEventListener("click", e => {
     e.preventDefault()
 
-    let cardId = e.target.parentElement.id || e.target.parentElement.parentElement.id
-    if (cardId == "table") {
-      cardId = e.target.id
-    }
+    let cardId = e.target.parentElement.id || e.target.parentElement.parentElement.id // second is if image was clicked, le sigh
+
     if (!cardId) { return false }
     moveToTop(cardId)
     return false;
@@ -314,12 +307,12 @@ function setTitle(card){
   const position = toPosition(card.orientation)
 
   if (card.visible == "back") {
-    card.node.querySelector("h4").innerText = "A card " + position
+    card.node.querySelector("h3").innerText = "A card " + position
   } else {
     const cardNumber = card.number
     const cardTitle = card.title
     const cardTitleWithNumber = cardNumber == "" ? cardTitle : cardNumber + ". " + cardTitle
-    card.node.querySelector("h4").innerText = card.title + " " + position
+    card.node.querySelector("h3").innerText = card.title + " " + position
   }
 }
 
@@ -353,14 +346,15 @@ function mkRotateRight(cardId) {
 }
 
 function rotateCard(cardId, direction) {
+  const card = tableCards[cardId]
   if (direction == "left") {
-    tableCards[cardId].orientation = rotateLeft(tableCards[cardId].orientation)
+    card.orientation = rotateLeft(card.orientation)
   } else {
-    tableCards[cardId].orientation = rotateRight(tableCards[cardId].orientation)
+    card.orientation = rotateRight(card.orientation)
   }
-  tableCards[cardId].node.style.transform = toTransform(tableCards[cardId])
-  tableCards[cardId].node.children[0].style.transform = toRotate(tableCards[cardId].orientation)
-  setTitle(tableCards[cardId])
+  card.node.style.transform = toTransform(card)
+  card.node.children[0].style.transform = toRotate(card.orientation)
+  setTitle(card)
 }
 
 function toPosition (orientation) {
@@ -409,43 +403,39 @@ function rotateLeft(orientation) {
 //* END Rotation *//
 
 function initializeDeck(table) {
-  const holder = document.getElementById("deck-cards")
+  const holder = document.getElementById("table-cards")
   const newCard = createCard(cards[currentCard])
   if (currentCard <= cards.length) {
     currentCard = currentCard + 1
   } else {
     console.log("no more cards")
   }
-  const newCard2 = createCard(cards[currentCard])
+  /*const newCard2 = createCard(cards[currentCard])
   newCard2.tabIndex = 2
   if (currentCard <= cards.length) {
     currentCard = currentCard + 1
   } else {
     console.log("no more cards")
-  }
+  }*/
   holder.appendChild(newCard)
-  holder.appendChild(newCard2)
+  //holder.appendChild(newCard2)
 }
 
 function moveFromDeckToTable(cardNode, card) {
-  let holder = document.getElementById("deck-cards")
-  let table = document.getElementById("table-cards")
-  holder.removeChild(cardNode)
-  table.appendChild(cardNode)
-  cardNode.focus()
-
   const scrollY = window.scrollY
   const scrollX = window.scrollX
   card.y += scrollY
   card.x += scrollX
 
-  document.querySelector(".no-cards").style.display = "none";
+  cardNode.classList.remove("deck-card")
 
-  if (holder.children.length < 2) {
+  const deckCards = document.getElementsByClassName("deck-card")
+  if (deckCards.length < 1) {
     if (currentCard <= cards.length) {
       const newCard = createCard(cards[currentCard])
       currentCard = currentCard + 1
-      holder.appendChild(newCard)
+      let table = document.getElementById("table-cards")
+      table.appendChild(newCard)
     } else {
       console.log("no more cards")
     }
@@ -457,7 +447,7 @@ interact('.draggable').draggable({
   listeners: {
     start (event) {
       const card = tableCards[event.target.id]
-      if (event.target.parentElement.id == "deck-cards") {
+      if (event.target.classList.contains("deck-card")) {
         moveFromDeckToTable(event.target, card)
       }
       event.target.className += " floating"
@@ -466,8 +456,6 @@ interact('.draggable').draggable({
     move (event) {
       const targetId = event.target.id
       let card = tableCards[targetId]
-
-      const scrollY = window.scrollY
 
       card.x += event.dx
       card.y += event.dy
