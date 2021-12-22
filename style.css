@@ -1,10 +1,24 @@
-.sr-only {
+.sr-only-old {
   position:absolute;
   left:-10000px;
   top:auto;
   width:1px;
   height:1px;
   overflow:hidden;
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px, 1px, 1px, 1px); /*maybe deprecated but we need to support legacy browsers */
+  clip-path: inset(50%); /*modern browsers, clip-path works inwards from each corner*/
+  white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 }
 
 #card-template {
@@ -150,10 +164,12 @@
 }
 
 .deck {
+  position: fixed;
   width: 199px;
-  height: 288px;
+  height: 284px;
   margin-top: 8px;
   margin-left: 10px;
+  z-index: 3;
 }
 
 .card {
@@ -166,6 +182,13 @@
 }
 .card:focus {
   outline: none;
+}
+
+.card.deck-card {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 5;
 }
 
 .inner-card * {
