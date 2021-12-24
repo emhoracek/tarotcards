@@ -34,90 +34,88 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
-    <header class="sr-only">
-      <h1>
-        An interactive tarot card deck.
-      </h1>
-    </header>
-    <div class="wrapper">
-      <main id="table">
-        <h2 class="sr-only">The table</h2>
-        <img class="deck" src="https://cdn.glitch.me/6f22b01f-863d-42d0-b982-19a1a5d07120/deck.svg?v=1639873153389" alt="" />
-        <ul id="table-cards">
-          <li id="card-template" tabindex="0">
-            <div class="inner-card">
-              <h3 class="sr-only">The top card on the deck</h3>
-              <img src="#" alt="" />
-              <button class="button rotateRight">→</button>
-              <button class="button rotateLeft">←</button>
-              <button class="button flip">↑</button>
-            </div>
-          </li>
-        </ul>
-      </main>
+  <header class="sr-only">
+    <h1>
+      An interactive tarot card deck.
+    </h1>
+  </header>
+  <main id="table">
+    <h2 class="sr-only">The table</h2>
+    <img class="deck" src="https://cdn.glitch.me/6f22b01f-863d-42d0-b982-19a1a5d07120/deck.svg?v=1639873153389" alt="" />
+    <ul id="table-cards">
+      <li id="card-template" tabindex="0">
+        <div class="inner-card">
+          <h3 class="sr-only">The top card on the deck</h3>
+          <img src="#" alt="" />
+          <button class="button rotateRight">→</button>
+          <button class="button rotateLeft">←</button>
+          <button class="button flip">↑</button>
+        </div>
+      </li>
+    </ul>
+  </main>
+  <div id="open-explainer">
+    <button>divinatory text</button>
+  </div>
+  <div id="explainer">
+    <div class="explainer-titlebar">
+      <div class="explainer-title">
+        Divinatory text
+      </div>
+      <div class="explainer-button">
+        ✕
+      </div>
     </div>
-    <div id="open-explainer">
-      <button>divinatory text</button>
+    <div class="explanation-placeholder">
+      <p>Select a card to see its interpretation.</p>
     </div>
-    <div id="explainer">
-      <div class="explainer-titlebar">
-        <div class="explainer-title">
-          Divinatory text
-        </div>
-        <div class="explainer-button">
-          ✕
-        </div>
+    <div class="explanation-main">
+      <div class="explanation-positive">
+        <p>
+          Regular interpretation of the card.
+        </p>
       </div>
-      <div class="explanation-placeholder">
-        <p>Select a card to see its interpretation.</p>
+      <div class="explanation-negative">
+        <h1>Negative</h1>
+        <p>
+          Negative interpretation of the card.
+        </p>
       </div>
-      <div class="explanation-main">
-        <div class="explanation-positive">
-          <p>
-            Regular interpretation of the card.
-          </p>
-        </div>
-        <div class="explanation-negative">
-          <h1>Negative</h1>
-          <p>
-            Negative interpretation of the card.
-          </p>
-        </div>
-      </div>
-      <div id="explainer-options">
-        <label>
-          <input type="radio" id="cs" checked name="interpretation" value="cs">
-          Coleman-Smith
-        </label>
+    </div>
+    <div id="explainer-options">
+      <label>
+        <input type="radio" id="cs" checked name="interpretation" value="cs">
+        Coleman-Smith
+      </label>
 
-        <label>
-          <input type="radio" id="waite" name="interpretation" value="waite">
-          Waite
-        </label>
-      </div>
+      <label>
+        <input type="radio" id="waite" name="interpretation" value="waite">
+        Waite
+      </label>
     </div>
-    <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
-    <footer class="footer">
-      <div class="credits">
-        <p>
-          All cards are from the 1996 <a href="http://www.m31.de/colman-smith/index.html">Coleman-Smith</a> deck.
-        </p>
-        <p>
-          The Divinatory Texts are from Coleman-Smith (1996) and The Pictorial Key to the Tarot by A.E. Waite (1910).
-        </p>
-      </div>
-      <div class="links"></div>
-      <a
-        class="btn--remix"
-        target="_top"
-        href="https://glitch.com/edit/#!/remix/glitch-hello-website"
-      >
-        <img
-          src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
-          alt=""
-        />
-        Remix on Glitch
-      </a>
-    </footer>
+  </div>
+  <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
+  <footer class="footer">
+    <div class="credits">
+      <p>
+        All cards are from the 1996 <a href="http://www.m31.de/colman-smith/index.html">Coleman-Smith</a> deck.
+      </p>
+      <p>
+        The Divinatory Texts are from Coleman-Smith (1996) and The Pictorial Key to the Tarot by A.E. Waite (1910).
+      </p>
+    </div>
+    <div class="links"></div>
+    <a
+      class="btn--remix"
+      target="_top"
+      href="https://glitch.com/edit/#!/remix/glitch-hello-website"
+    >
+      <img
+        src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
+        alt=""
+      />
+      Remix on Glitch
+    </a>
+  </footer>
   </body>
 </html>

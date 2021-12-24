@@ -21,6 +21,8 @@
   white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 }
 
+body { margin: 0; padding: 0; }
+
 #card-template {
   display: none;
 }
@@ -132,10 +134,6 @@
   cursor: default;
 }
 
-.wrapper {
-  margin: 0 !important;
-}
-
 .card,
 .card * {
   -ms-touch-action: none;
@@ -167,8 +165,8 @@
   position: fixed;
   width: 199px;
   height: 284px;
-  margin-top: 8px;
-  margin-left: 10px;
+  margin-top: 5px;
+  margin-left: 18px;
   z-index: 3;
 }
 
@@ -233,6 +231,10 @@
   position: absolute;
   width: 184px;
   transition: opacity 0.5s;
+}
+
+footer {
+
 }
 
 
@@ -345,46 +347,9 @@ body {
   background-color: var(--color-bg);
 }
 
-/* Page structure */
-.wrapper {
-  min-height: var(--wrapper-height);
-  display: grid;
-  place-items: center;
-  margin: 0 1rem;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: left;
-  max-width: 600px;
-}
-
 p,
 label {
   font-size: 1.25rem;
-}
-
-/* Title h1 style */
-h1 {
-  color: #2800FF;
-  font-family: HK Grotesk;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 100px;
-  line-height: 105%;
-  margin: 2rem 0 0;
-}
-
-/* Very light scaling for our illustration */
-.illo-container {
-  display: flex;
-  justify-content: flex-end;
-}
-.illustration {
-  max-width: 100%;
-  max-height: 150px;
-  margin-top: 1rem;
 }
 
 button,
@@ -405,28 +370,10 @@ label {
   font-weight: bold;
 }
 
-/* Instructions */
-.instructions {
-  margin: 1rem auto 0;
-}
-.instructions p {
-  font-size: 1rem;
-}
 h2 {
   color: #2800FF;
 }
 
-/* Admin page */
-table {
-  text-align: left;
-  border-collapse: collapse;
-  background-color: #FFF3FC;
-}
-td,
-th {
-  border: 2px solid #FFFFFF;
-  padding: 0.5rem;
-}
 p a {
   text-decoration: none;
   font-weight: bold;
