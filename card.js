@@ -258,5 +258,7 @@ class Orientation {
 }
 
 function hideImage(e) {
-  e.target.style.display = "none";
+  if (e.target.tagName == "IMG") {
+    e.target.style.display = "none";
+  }
 }
