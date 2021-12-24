@@ -86,6 +86,10 @@ class Card {
   }
 
   move(dx, dy) {
+    if (this.node.classList.contains("deck-card")) {
+      this.moveFromDeckToTable()
+    }
+
     if (Math.abs(this.velocity) < 50) { this.velocity += Math.abs(dx) * 5 }
     if (Math.abs(this.velocity) < 50) { this.velocity += Math.abs(dy) * 5 }
 
@@ -93,10 +97,6 @@ class Card {
     this.y += this.velocity * dy;
 
     this.node.style.transform = this.toTransform
-
-    if (this.node.classList.contains("deck-card")) {
-      this.moveFromDeckToTable()
-    }
   }
 
   moveToTop() {
@@ -126,11 +126,12 @@ class Card {
     // set initital position
     const scrollY = window.scrollY
     const scrollX = window.scrollX
-    this.y += scrollY
-    this.x += scrollX
+    this.y += scrollY - 9
+    this.x += scrollX + 6
 
     this.node.classList.remove("deck-card")
     this.setTitle() // change "The top card on the deck" => "A card"
+    this.node.style.transform = this.toTransform
   }
 
   get title() {
@@ -179,7 +180,9 @@ class Card {
 
   handleMovement(key){
     if (!this.node.classList.contains('floating')) { this.node.classList.add('floating') }
-    this.node.style.transition = "transform 0.25s"
+    if (!this.node.classList.contains('deck-card')) {
+      this.node.style.transition = "transform 0.25s"
+    }
     if (key == "ArrowRight") {
       this.move(1,0)
     }
