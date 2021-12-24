@@ -126,7 +126,7 @@ class Card {
     // set initital position
     const scrollY = window.scrollY
     const scrollX = window.scrollX
-    this.y += scrollY - 9
+    this.y += scrollY + 11
     this.x += scrollX + 6
 
     this.node.classList.remove("deck-card")

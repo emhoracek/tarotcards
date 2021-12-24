@@ -151,22 +151,15 @@ body { margin: 0; padding: 0; }
   background-color: #e6f7f7aa;
   background-image:  linear-gradient(#f745e8 1px, transparent 1px), linear-gradient(to right, #f745e8 1px, #e6f7f7aa 1px);
   background-size: 20px 20px;
-}
-
-#deck-holder {
-  width: 200px;
-  height: 300px;
-  position: fixed;
-  -webkit-backface-visibility: hidden;
-  z-index: 5;
+  border: 1px solid #f745e8;
 }
 
 .deck {
   position: fixed;
   width: 199px;
   height: 284px;
-  margin-top: 5px;
-  margin-left: 18px;
+  margin-top: 23px;
+  margin-left: 16px;
   z-index: 3;
 }
 
@@ -184,7 +177,7 @@ body { margin: 0; padding: 0; }
 
 .card.deck-card {
   position: fixed;
-  top: 15px;
+  top: 20px;
   left: 15px;
   z-index: 5;
 }
@@ -232,11 +225,6 @@ body { margin: 0; padding: 0; }
   width: 184px;
   transition: opacity 0.5s;
 }
-
-footer {
-
-}
-
 
 /******************************************************************************
 START Glitch hello-app default styles
