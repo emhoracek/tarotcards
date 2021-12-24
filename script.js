@@ -432,6 +432,10 @@ function moveFromDeckToTable(cardNode, card) {
   card.x += scrollX
 
   cardNode.classList.remove("deck-card")
+  const titleNode = cardNode.querySelector("h3")
+  if (titleNode.innerText == "The top card on the deck") {
+    setTitle(card)
+  }
 
   const deckCards = document.getElementsByClassName("deck-card")
   if (deckCards.length < 1) {
