@@ -18,6 +18,9 @@ class Card {
     this.velocity = 0
     this.visible = "back"
     this.orientation = new Orientation([0, 180][Math.floor(Math.random() * 2)])
+
+    // node
+    this.node = false
   }
 
   createNode () {
@@ -51,7 +54,7 @@ class Card {
     let table = document.getElementById("table-cards")
     table.appendChild(cardNode)
 
-    return cardNode
+    this.node = cardNode
   }
 
   setupRotate(node, className, direction) {
@@ -75,10 +78,6 @@ class Card {
       card.flip()
       return false;
     })
-  }
-
-  get node() {
-    return document.getElementById(this.id)
   }
 
   get toTransform () {
