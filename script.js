@@ -458,7 +458,7 @@ interact('.draggable').draggable({
       if (event.target.classList.contains("deck-card")) {
         moveFromDeckToTable(event.target, card)
       }
-      event.target.className += " floating"
+      event.target.classList.add("floating")
       event.target.children[0].style["box-shadow"] = shadow(card.orientation)
     },
     move (event) {
@@ -471,9 +471,7 @@ interact('.draggable').draggable({
       event.target.style.transform = toTransform(card)
     },
     end (event) {
-      const classes = event.target.className
-      const newClasses = classes.split(" ").filter(c => c !== "floating").join(" ")
-      event.target.className = newClasses
+      event.target.classList.remove("floating")
       event.target.children[0].style["box-shadow"] = "none"
     },
   }
