@@ -1,6 +1,7 @@
 /* globals interact, cards */
 
 let tableCards = {}
+let selectedCard = false
 
 document.addEventListener("DOMContentLoaded", function(event) {
   shuffleArray(cards)
@@ -16,8 +17,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function onFocus(e) {
   const selected = document.activeElement
   if (selected.classList.contains("card")) {
+    selectedCard = tableCards[selected.id]
     const interpretation = document.querySelector('input[name="interpretation"]:checked');
-    displayExplanation(selected.id, interpretation.value)
+    displayExplanation(interpretation.value)
   }
 }
 
@@ -54,93 +56,6 @@ function onKeyUp(e) {
       })
       e.preventDefault()
     }
-  }
-}
-
-function setUpExplainer() {
-  const openExplainer = document.getElementById("open-explainer")
-  const closeExplainer = document.getElementsByClassName("explainer-button")[0]
-  closeExplainer.addEventListener('click', e => {
-    const explainer = document.getElementById("explainer")
-    explainer.style.display = "none"
-    openExplainer.style.display = "block"
-  })
-  openExplainer.addEventListener('click', e => {
-    const explainer = document.getElementById("explainer")
-    explainer.style.display = "block"
-    openExplainer.style.display = "none"
-  })
-
-  const explainerOpt1 = document.getElementById("cs")
-  const explainerOpt2 = document.getElementById("waite")
-
-  const inputs = document.getElementsByTagName("input");
-  for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('change', e => {
-          const selected = document.querySelector('input[name="interpretation"]:checked');
-          if (selected.id == e.target.id) {
-            displayExplanation(e.target.value)
-          }
-      });
-  }
-}
-
-function displayExplanation(cardId, interpretation) {
-  if (cardId) {
-    const selectedCard = tableCards[cardId]
-
-    if (selectedCard && selectedCard.visible == "front") {
-      const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
-      placeholder.style.display = "none"
-
-      const map = {
-        "cs": {
-          positiveTitle: "Positive",
-          negativeTitle: "Negative",
-          positive: selectedCard["cspositive"],
-          negative: selectedCard["csnegative"]
-        },
-        "waite": {
-          positiveTitle: "Upright",
-          negativeTitle: "Reversed",
-          positive: selectedCard["waiteregular"],
-          negative: selectedCard["waitereversed"]
-        },
-      }
-
-      let main = document.querySelector(".explanation-main")
-      main.style.display = "block"
-      main.scrollTop = 0;
-
-      let title = document.querySelector(".explainer-title")
-      title.innerText = "Divinatory Text: " + selectedCard["title"]
-
-      let negativeh = document.querySelector(".explanation-negative h1")
-      negativeh.innerText = map[interpretation].negativeTitle
-
-      let positivep = document.querySelector(".explanation-positive p")
-      positivep.innerText = map[interpretation].positive
-      let negativep = document.querySelector(".explanation-negative p")
-      negativep.innerText = map[interpretation].negative
-    } else {
-      let title = document.querySelector(".explainer-title")
-      title.innerText = "Divinatory Text"
-
-      const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
-      placeholder.style.display = "block"
-
-      let main = document.querySelector(".explanation-main")
-      main.style.display = "none"
-    }
-  } else {
-    let title = document.querySelector(".explainer-title")
-    title.innerText = "Divinatory Text"
-
-    const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
-    placeholder.style.display = "block"
-
-    let main = document.querySelector(".explanation-main")
-    main.style.display = "none"
   }
 }
 
@@ -201,3 +116,91 @@ interact('.draggable').draggable({
     },
   }
 })
+
+/* EXPLAINER */
+function setUpExplainer() {
+  const openExplainer = document.getElementById("open-explainer")
+  const closeExplainer = document.getElementsByClassName("explainer-button")[0]
+  closeExplainer.addEventListener('click', e => {
+    const explainer = document.getElementById("explainer")
+    explainer.style.display = "none"
+    openExplainer.style.display = "block"
+  })
+  openExplainer.addEventListener('click', e => {
+    const explainer = document.getElementById("explainer")
+    explainer.style.display = "block"
+    openExplainer.style.display = "none"
+  })
+
+  const explainerOpt1 = document.getElementById("cs")
+  const explainerOpt2 = document.getElementById("waite")
+
+  const inputs = document.getElementsByTagName("input");
+  for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('change', e => {
+          const selected = document.querySelector('input[name="interpretation"]:checked');
+          if (selected.id == e.target.id) {
+            displayExplanation()
+          }
+      });
+  }
+}
+
+function displayExplanation() {
+  if (selectedCard && selectedCard.visible == "front") {
+    const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
+    placeholder.style.display = "none"
+    const interpretationNode = document.querySelector('input[name="interpretation"]:checked');
+    const interpretation = interpretationNode.value
+
+    const map = {
+      "cs": {
+        positiveTitle: "Positive",
+        negativeTitle: "Negative",
+        positive: selectedCard["csmeaning"],
+        negative: selectedCard["csnegative"]
+      },
+      "waite": {
+        positiveTitle: "Upright",
+        negativeTitle: "Reversed",
+        positive: selectedCard["waitemeaning"],
+        negative: selectedCard["waitereversed"]
+      },
+    }
+
+    let main = document.querySelector(".explanation-main")
+    main.style.display = "block"
+    main.scrollTop = 0;
+
+    let title = document.querySelector(".explainer-title")
+    title.innerText = "Divinatory Text: " + selectedCard["label"]
+
+    let negativeh = document.querySelector(".explanation-negative h1")
+    negativeh.innerText = map[interpretation].negativeTitle
+
+    let positivep = document.querySelector(".explanation-positive p")
+    positivep.innerText = map[interpretation].positive
+    let negativep = document.querySelector(".explanation-negative p")
+    negativep.innerText = map[interpretation].negative
+  } else {
+    let title = document.querySelector(".explainer-title")
+    title.innerText = "Divinatory Text"
+
+    const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
+    placeholder.style.display = "block"
+
+    let main = document.querySelector(".explanation-main")
+    main.style.display = "none"
+  }
+}
+
+function clearExplanation () {
+  let title = document.querySelector(".explainer-title")
+  title.innerText = "Divinatory Text"
+
+  const placeholder = document.getElementsByClassName("explanation-placeholder")[0]
+  placeholder.style.display = "block"
+
+  let main = document.querySelector(".explanation-main")
+  main.style.display = "none"
+}

@@ -174,12 +174,7 @@ class Card {
       this.node.querySelector('.flip').innerText = "↑"
     }
     this.setTitle()
-
-    // how to handle? before, this would happen when front-facing
-    /*
-      const selected = document.querySelector('input[name="interpretation"]:checked');
-      displayExplanation(cardId, selected.value)
-    */
+    displayExplanation()
   }
 
   handleMovement(key){
