@@ -1,7 +1,6 @@
 /* globals interact, cards */
 
 let tableCards = {}
-let currentCard = 0
 
 document.addEventListener("DOMContentLoaded", function(event) {
   shuffleArray(cards);
@@ -408,21 +407,13 @@ function rotateLeft(orientation) {
 
 function initializeDeck(table) {
   const holder = document.getElementById("table-cards")
-  const newCard = createCard(cards[currentCard])
-  if (currentCard <= cards.length) {
-    currentCard = currentCard + 1
+  if (cards.length > 0) {
+    const card = cards.pop()
+    const newCard = createCard(card)
+    holder.appendChild(newCard)
   } else {
     console.log("no more cards")
   }
-  /*const newCard2 = createCard(cards[currentCard])
-  newCard2.tabIndex = 2
-  if (currentCard <= cards.length) {
-    currentCard = currentCard + 1
-  } else {
-    console.log("no more cards")
-  }*/
-  holder.appendChild(newCard)
-  //holder.appendChild(newCard2)
 }
 
 function moveFromDeckToTable(cardNode, card) {
@@ -439,9 +430,9 @@ function moveFromDeckToTable(cardNode, card) {
 
   const deckCards = document.getElementsByClassName("deck-card")
   if (deckCards.length < 1) {
-    if (currentCard <= cards.length) {
-      const newCard = createCard(cards[currentCard])
-      currentCard = currentCard + 1
+    if (cards.length > 0) {
+      const card = cards.pop()
+      const newCard = createCard(card)
       let table = document.getElementById("table-cards")
       table.appendChild(newCard)
     } else {
