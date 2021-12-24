@@ -171,7 +171,7 @@ let cards = [
     "label": "Temperance",
     "number": 14,
     "displayNumber": "XIV",
-    "image": "https://cdn.glitch.me/6f22b01f-863d-42d0-b982-19a1a5d07120/14M.JPG?v=1639789",
+    "image": "https://cdn.glitch.me/6f22b01f-863d-42d0-b982-19a1a5d07120/14M.jpeg?v=1640382829176",
     "cspositive": "A quantum leap, a bridge between heaven and earth inviting the polar opposites, the creative forces of masculine and feminine, conscious and unconscious, the sun and the moon., fire and water. Connected with the function of feeling, the active, intelligent faculty of choice, a constantly changing bridge between these opposites, a careful sensing of the needs of a particular situation with the goal of harmony and relationship, balance and tolerance at the end. It is an integration of creative power inviting the others to share.",
     "csnegative": "Too much harmony oriented, where no change is allowed to occur and the mind suffocates from sheer boredom.",
     "waiteregular": "Economy, moderation, frugality, management, accommodation.",
