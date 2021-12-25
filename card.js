@@ -153,7 +153,8 @@ class Card {
       this.orientation.rotateRight()
     }
     this.node.style.transform = this.toTransform
-    this.node.children[0].style.transform = this.orientation.toTransform
+    this.node.querySelector(".inner-card").style.transform = this.orientation.toTransform
+    this.node.style.width = this.orientation.width
     this.setTitle()
   }
 
@@ -242,6 +243,13 @@ class Orientation {
       return "-10px -5px 10px #666666"
     }
     return "-10px 5px 10px #666666"
+  }
+
+  get width () {
+    if (this.normalized == 0 || this.normalized == 180) {
+      return "250px"
+    }
+    return "325px"
   }
 
   get toTransform () {

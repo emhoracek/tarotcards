@@ -165,11 +165,11 @@ body { margin: 0; padding: 0; }
 
 .card {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  width: 0;
-  height: 0;
+  width: 250px;
+  height: 268px;
   list-style: none;
+  transition: width 1s;
+  display: flex;
 }
 .card:focus {
   outline: none;
@@ -193,28 +193,11 @@ body { margin: 0; padding: 0; }
   background:linear-gradient(146deg, rgba(38, 230, 250, 1) 0%, rgba(140, 5, 227, 1) 70%, rgba(88, 11, 137, 1) 100%);
   transition: transform 1s, box-shadow 1s;
   border: 2px solid rebeccapurple;
+  margin: auto;
 }
 
 .card:focus-within .inner-card {
   border: 2px solid magenta;
-}
-
-.inner-card button {
-  display: none;
-  background: aliceblue;
-  position: relative;
-  width: 25px;
-  height: 25px;
-  left: -33px;
-  text-align: center;
-  border: 1px solid darkblue;
-  border-radius: 3px;
-  cursor: pointer;
-  padding: 0;
-}
-
-.card:focus-within button {
-  display: block;
 }
 
 .inner-card img {
@@ -224,6 +207,18 @@ body { margin: 0; padding: 0; }
   position: absolute;
   width: 184px;
   transition: opacity 0.5s;
+}
+
+.buttons {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  cursor: pointer;
+}
+
+.card:focus-within .buttons {
+  visibility: visible;
 }
 
 /******************************************************************************
