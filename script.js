@@ -52,7 +52,7 @@ function onKeyUp(e) {
       const card = tableCards[selected.id]
       card.velocity = 0;
       selected.addEventListener("transitionend", e => {
-        selected.style.transition = "none";
+        removeTransition(selected, "transform")
       })
       e.preventDefault()
     }
@@ -203,4 +203,18 @@ function clearExplanation () {
 
   let main = document.querySelector(".explanation-main")
   main.style.display = "none"
+}
+
+
+function removeTransition (node, transition) {
+  const trans = node.style.transition
+  const transes = trans.split(" ")
+  let kept = []
+  for (i = 0; i < (transes.length/2); i = i+2) {
+    if (transes[i] !== transition) {
+      kept.push(transes[i])
+      kept.push(transes[i+1])
+    }
+  }
+  node.style.transition = kept.join(" ")
 }

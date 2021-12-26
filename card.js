@@ -125,8 +125,8 @@ class Card {
     // set initital position
     const scrollY = window.scrollY
     const scrollX = window.scrollX
-    this.y += scrollY + 11
-    this.x += scrollX + 6
+    this.y += scrollY + 3
+    this.x += scrollX - 25
 
     this.node.classList.remove("deck-card")
     this.setTitle() // change "The top card on the deck" => "A card"
@@ -181,7 +181,7 @@ class Card {
   handleMovement(key){
     if (!this.node.classList.contains('floating')) { this.node.classList.add('floating') }
     if (!this.node.classList.contains('deck-card')) {
-      this.node.style.transition = "transform 0.25s"
+      this.node.style.transition += " transform 0.25s"
     }
     if (key == "ArrowRight") {
       this.move(1,0)
@@ -247,9 +247,9 @@ class Orientation {
 
   get width () {
     if (this.normalized == 0 || this.normalized == 180) {
-      return "250px"
+      return "235px"
     }
-    return "325px"
+    return "315px"
   }
 
   get toTransform () {

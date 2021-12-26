@@ -159,13 +159,17 @@ body { margin: 0; padding: 0; }
   width: 199px;
   height: 284px;
   margin-top: 23px;
-  margin-left: 16px;
+  margin-left: 23px;
   z-index: 3;
+}
+
+.transition-transform {
+  transition: transform 0.25s
 }
 
 .card {
   position: absolute;
-  width: 250px;
+  width: 235px;
   height: 268px;
   list-style: none;
   transition: width 1s;
@@ -234,11 +238,11 @@ to this section's matching END comment to see page-specific styles.
   --color-bg: rgb(92,255,192);
   --color-text-main: #000000;
   --color-primary: #D7F5EF;
-  --wrapper-height: 87vh;
-  --image-max-width: 300px;
   --image-margin: 3rem;
   --font-family: "HK Grotesk";
   --font-family-header: "HK Grotesk";
+  --card-width: 188px;
+  --card-height: 268px;
 }
 
 /* Basic page style resets */
@@ -343,7 +347,7 @@ input {
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
 }
 button {
   cursor: pointer;
@@ -353,19 +357,7 @@ label {
   font-weight: bold;
 }
 
-h2 {
-  color: #2800FF;
-}
-
 p a {
   text-decoration: none;
   font-weight: bold;
-}
-p.error,
-p.error a:link,
-p.error a:visited {
-  color: #2800FF;
-}
-.results {
-  padding-top:10px;
 }
